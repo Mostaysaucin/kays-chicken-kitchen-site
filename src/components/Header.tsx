@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,13 +60,13 @@ export default function Header() {
         </nav>
 
         {/* Desktop Order Button */}
-        <a href="tel:8138930415" className="btn-gold hidden md:inline-flex !py-2 !px-6 !text-sm">
-          Order Now
+        <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-gold hidden md:inline-flex !py-2 !px-6 !text-sm">
+          Order Online
         </a>
 
         {/* Mobile Controls */}
         <div className="flex items-center gap-3 md:hidden">
-          <a href="tel:8138930415" className="btn-gold !py-2 !px-4 !text-xs">
+          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-gold !py-2 !px-4 !text-xs">
             Order
           </a>
           <button
@@ -108,11 +110,13 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="tel:8138930415"
+              href={ORDER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-gold mt-4 text-center"
               onClick={() => setMenuOpen(false)}
             >
-              Call to Order: (813) 893-0415
+              Order Online
             </a>
           </nav>
         </div>

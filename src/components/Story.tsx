@@ -28,7 +28,7 @@ export default function Story() {
               Our Story
             </p>
             <h2
-              className="font-accent text-3xl sm:text-4xl md:text-5xl mb-6"
+              className="font-accent text-3xl sm:text-4xl md:text-5xl mb-8"
               style={{
                 color: "var(--dark)",
                 fontFamily: "var(--font-accent)",
@@ -41,7 +41,7 @@ export default function Story() {
             >
               From a Chicago Kitchen to Tampa&apos;s Table
             </h2>
-            <div className="space-y-4" style={{ color: "#4A4A4A", fontSize: "16px", lineHeight: 1.8 }}>
+            <div className="space-y-5" style={{ color: "#4A4A4A", fontSize: "16px", lineHeight: 1.8 }}>
               <p>
                 Kay Lee grew up in the kitchens of Chicago&apos;s South Side, where fried chicken
                 wasn&apos;t just food &mdash; it was family, it was culture, it was home. Every bite
@@ -66,32 +66,36 @@ export default function Story() {
             </div>
           </div>
 
-          {/* Right: Stats & Visual */}
+          {/* Right: Image & Stats */}
           <div>
-            {/* Image placeholder - pattern-based visual */}
+            {/* Food image */}
             <div
-              className="rounded-lg mb-8 flex items-center justify-center overflow-hidden"
+              className="rounded-xl mb-8 overflow-hidden"
               style={{
-                height: "320px",
-                background: "linear-gradient(135deg, #CC0000 0%, #8B0000 50%, #1A1A1A 100%)",
+                height: "400px",
+                position: "relative",
               }}
             >
-              <div className="text-center p-8">
+              <img
+                src="https://images.unsplash.com/photo-1562967914-608f82629710?w=800&q=80&auto=format"
+                alt="Golden crispy fried chicken wings with seasoning"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+              <div
+                className="absolute bottom-0 left-0 right-0 p-6"
+                style={{
+                  background: "linear-gradient(to top, rgba(15,15,15,0.9) 0%, transparent 100%)",
+                }}
+              >
                 <span
-                  className="text-6xl md:text-7xl block mb-4"
-                  style={{
-                    fontFamily: "var(--font-accent)",
-                    color: "var(--gold)",
-                    fontStyle: "italic",
-                  }}
-                >
-                  Kay&apos;s
-                </span>
-                <span
-                  className="text-lg tracking-[0.3em] text-white/90"
+                  className="text-sm tracking-[0.2em] text-white/90"
                   style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
                 >
-                  Chicken Kitchen
+                  Since 2017 &middot; Tampa, FL
                 </span>
               </div>
             </div>

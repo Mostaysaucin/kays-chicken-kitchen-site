@@ -1,3 +1,5 @@
+const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+
 export default function OrderCTA() {
   return (
     <section
@@ -5,7 +7,7 @@ export default function OrderCTA() {
       className="relative flex items-center justify-center text-center"
       style={{
         background: "var(--red)",
-        padding: "60px 24px",
+        padding: "80px 24px",
       }}
     >
       {/* Subtle pattern */}
@@ -19,18 +21,21 @@ export default function OrderCTA() {
 
       <div className="relative z-10 max-w-2xl mx-auto">
         <h2
-          className="text-3xl sm:text-4xl md:text-5xl mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl mb-4"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "white" }}
         >
           Ready to Taste{" "}
           <span style={{ color: "var(--gold)" }}>Chicago?</span>
         </h2>
+        <p className="text-base mb-8" style={{ color: "rgba(255,255,255,0.85)" }}>
+          Order online for pickup or delivery from either Tampa location
+        </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="tel:8138930415" className="btn-gold">
-            Order Now
+          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
+            Order Online Now
           </a>
           <a href="tel:8138930415" className="btn-white-outline">
-            Call to Order: (813) 893-0415
+            Call: (813) 893-0415
           </a>
         </div>
       </div>

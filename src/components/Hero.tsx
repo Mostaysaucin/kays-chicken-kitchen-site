@@ -2,18 +2,25 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center text-center"
+      className="relative flex items-center justify-center text-center overflow-hidden"
       style={{
-        minHeight: "80vh",
-        background: "linear-gradient(135deg, rgba(204, 0, 0, 0.15) 0%, rgba(26, 26, 26, 0.95) 100%), #0F0F0F",
+        minHeight: "100vh",
       }}
     >
-      {/* Subtle texture overlay */}
+      {/* Background image */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle at 25% 25%, #CC0000 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+          backgroundImage: "url('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=1920&q=80&auto=format')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      {/* Dark overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(180deg, rgba(15, 15, 15, 0.65) 0%, rgba(15, 15, 15, 0.85) 100%)",
         }}
       />
 
@@ -44,7 +51,7 @@ export default function Hero() {
         {/* Subheadline */}
         <p
           className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in-up animate-delay-200"
-          style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.6 }}
+          style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}
         >
           Tampa&apos;s ONLY Chicago Style Fried Chicken &amp; Fish with the Authentic Chicago Style
           Mild Sauce
@@ -52,8 +59,8 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
-          <a href="tel:8138930415" className="btn-gold">
-            Order Now
+          <a href="https://www.clover.com/online-ordering/kays-kitchen-tampa" target="_blank" rel="noopener noreferrer" className="btn-gold">
+            Order Online
           </a>
           <a href="#menu" className="btn-red-outline">
             View Our Menu
@@ -63,7 +70,7 @@ export default function Hero() {
 
       {/* Bottom gradient fade */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-24"
+        className="absolute bottom-0 left-0 right-0 h-32"
         style={{
           background: "linear-gradient(to top, #0F0F0F 0%, transparent 100%)",
         }}

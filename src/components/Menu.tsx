@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 
+const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+
 interface MenuItem {
   name: string;
   price?: string;
+  desc?: string;
+  img?: string;
 }
 
 interface MenuCategory {
@@ -18,69 +22,69 @@ const menuData: MenuCategory[] = [
     id: "wings",
     label: "Wings",
     items: [
-      { name: "6 Piece Wings", price: "$15.49" },
-      { name: "10 Piece Wings", price: "$22.00" },
-      { name: "10 Whole Wings & Fries", price: "$22.99" },
-      { name: "15 Piece Wings Combo", price: "$22.99" },
-      { name: "20 Whole Wings & Fries", price: "$49.49" },
-      { name: "Traditional Wings", price: "$15.99" },
+      { name: "6 Piece Wings", price: "$15.49", desc: "Crispy Chicago-style seasoned wings" },
+      { name: "10 Piece Wings", price: "$22.00", desc: "Perfect for sharing" },
+      { name: "10 Whole Wings & Fries", price: "$22.99", desc: "Whole wings with our signature fries" },
+      { name: "15 Piece Wings Combo", price: "$22.99", desc: "Best value wing combo" },
+      { name: "20 Whole Wings & Fries", price: "$49.49", desc: "Party-size whole wings" },
+      { name: "Traditional Wings", price: "$15.99", desc: "Drums & flats with fries" },
     ],
   },
   {
     id: "fish",
     label: "Fish",
     items: [
-      { name: "2 Pcs Grouper", price: "$16.99" },
-      { name: "Grouper Sandwich", price: "$16.75" },
-      { name: "Catfish Nuggets", price: "$10.99" },
-      { name: "Fish Sandwich", price: "$11.75" },
-      { name: "Fish Fries & Hush Puppies Special", price: "$15.99" },
+      { name: "2 Pcs Grouper", price: "$16.99", desc: "Fresh grouper fillets, golden fried" },
+      { name: "Grouper Sandwich", price: "$16.75", desc: "Crispy grouper on a fresh bun" },
+      { name: "Catfish Nuggets", price: "$10.99", desc: "7-9 pieces of tender catfish" },
+      { name: "Fish Sandwich", price: "$11.75", desc: "Classic fried fish sandwich" },
+      { name: "Fish, Fries & Hush Puppies", price: "$15.99", desc: "Fish special with 3 hush puppies" },
     ],
   },
   {
     id: "shrimp",
     label: "Shrimp",
     items: [
-      { name: "Shrimp", price: "$15.50" },
-      { name: "Jumbo Shrimp", price: "$24.50" },
-      { name: "10 Jumbo Shrimp Special", price: "$29.75" },
-      { name: "Fish & 8 Shrimp Special", price: "$24.75" },
+      { name: "Shrimp", price: "$15.50", desc: "Perfectly seasoned fried shrimp" },
+      { name: "Jumbo Shrimp", price: "$24.50", desc: "Large gulf shrimp, golden crispy" },
+      { name: "10 Jumbo Shrimp Special", price: "$29.75", desc: "With fries & hush puppies" },
+      { name: "Fish & 8 Shrimp Special", price: "$24.75", desc: "Best of both with 3 hush puppies" },
     ],
   },
   {
     id: "chicken",
     label: "Chicken",
     items: [
-      { name: "Chicken Tenders" },
-      { name: "Chicken Gizzards & Livers" },
+      { name: "Chicken Tenders", desc: "Hand-breaded with Chicago seasoning" },
+      { name: "Chicken Gizzards & Livers", desc: "A Chicago soul food classic" },
     ],
   },
   {
     id: "combos",
-    label: "Combo Specials",
+    label: "Combos",
     items: [
-      { name: "Wings Shrimp & Fries", price: "$21.98" },
-      { name: "Fish Shrimp & Fries", price: "$19.48" },
+      { name: "Wings, Shrimp & Fries", price: "$21.98", desc: "The best of everything" },
+      { name: "Fish, Shrimp & Fries", price: "$19.48", desc: "Seafood lover's combo" },
     ],
   },
   {
     id: "sides",
-    label: "Sides & Extras",
+    label: "Sides",
     items: [
-      { name: "Fries" },
-      { name: "Fried Okra" },
-      { name: "Hush Puppies" },
-      { name: "Mac and Cheese" },
-      { name: "Pizza Puffs" },
+      { name: "Fries", desc: "Crispy golden fries" },
+      { name: "Fried Okra", desc: "Southern-style fried okra" },
+      { name: "Hush Puppies", desc: "Homemade cornmeal fritters" },
+      { name: "Mac and Cheese", desc: "Creamy baked mac & cheese" },
+      { name: "Pizza Puffs", desc: "Chicago hometown favorite" },
     ],
   },
   {
     id: "desserts",
     label: "Desserts",
     items: [
-      { name: "Red Velvet Cake (Homemade)" },
-      { name: "Pound Cake (Homemade)" },
-      { name: "Key Lime Cake" },
+      { name: "Red Velvet Cake", desc: "Homemade, Ms. Kay's recipe" },
+      { name: "Pound Cake", desc: "Homemade, dense & buttery" },
+      { name: "Key Lime Cake", desc: "Tangy citrus with cream frosting" },
     ],
   },
 ];
@@ -121,7 +125,7 @@ export default function Menu() {
 
         {/* Category Tabs */}
         <div
-          className="menu-tabs flex gap-2 overflow-x-auto pb-4 mb-8 -mx-6 px-6"
+          className="menu-tabs flex gap-2 overflow-x-auto pb-4 mb-8 -mx-6 px-6 justify-center flex-wrap"
           role="tablist"
           aria-label="Menu categories"
         >
@@ -132,13 +136,13 @@ export default function Menu() {
               aria-selected={activeCategory === category.id}
               aria-controls={`panel-${category.id}`}
               onClick={() => setActiveCategory(category.id)}
-              className="whitespace-nowrap px-6 py-3 rounded-full text-sm transition-all duration-200"
+              className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm transition-all duration-200"
               style={{
                 fontFamily: "var(--font-heading)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
                 fontWeight: 600,
-                minHeight: "48px",
+                minHeight: "44px",
                 background:
                   activeCategory === category.id ? "var(--red)" : "var(--surface)",
                 color: activeCategory === category.id ? "white" : "var(--text-muted)",
@@ -158,7 +162,7 @@ export default function Menu() {
           id={`panel-${currentCategory.id}`}
           role="tabpanel"
           aria-labelledby={currentCategory.id}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {currentCategory.items.map((item) => (
             <div
@@ -166,16 +170,19 @@ export default function Menu() {
               className="flex items-center justify-between p-5 rounded-lg transition-all duration-200 hover:border-[#CC0000]/30"
               style={{
                 background: "var(--surface)",
-                border: "1px solid rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.08)",
               }}
             >
-              <div>
+              <div className="flex-1 min-w-0">
                 <h3
                   className="text-base font-semibold text-white mb-1"
                   style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "0" }}
                 >
                   {item.name}
                 </h3>
+                {item.desc && (
+                  <p className="text-sm" style={{ color: "var(--text-muted)" }}>{item.desc}</p>
+                )}
               </div>
               {item.price && (
                 <span
@@ -191,7 +198,7 @@ export default function Menu() {
 
         {/* Order CTA */}
         <div className="text-center mt-12">
-          <a href="tel:8138930415" className="btn-gold">
+          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
             Order Online
           </a>
         </div>

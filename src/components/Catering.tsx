@@ -80,10 +80,10 @@ export default function Catering() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="text-center p-6 rounded-lg transition-all duration-200 hover:border-[#CC0000]/20"
+              className="text-center p-8 rounded-xl transition-all duration-200 hover:border-[#CC0000]/20"
               style={{
                 background: "var(--surface)",
-                border: "1px solid rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.08)",
               }}
             >
               <div className="flex justify-center mb-4">{feature.icon}</div>

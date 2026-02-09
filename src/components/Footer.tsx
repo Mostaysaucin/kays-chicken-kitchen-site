@@ -1,3 +1,5 @@
+const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+
 export default function Footer() {
   return (
     <footer className="site-footer section-padding" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
@@ -109,7 +111,9 @@ export default function Footer() {
                 @kayschickenkitchen
               </a>
               <a
-                href="tel:8138930415"
+                href={ORDER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-gold w-full text-center !text-sm !py-3 mt-4"
               >
                 Order Online
