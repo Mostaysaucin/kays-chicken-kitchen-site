@@ -1,17 +1,30 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const ORDER_URL = "https://kayschickenkitchen.smartonlineorder.com";
+const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
+const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [orderOpen, setOrderOpen] = useState(false);
+  const orderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (orderRef.current && !orderRef.current.contains(e.target as Node)) {
+        setOrderOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   const navLinks = [
@@ -30,18 +43,18 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2" aria-label="Kay's Chicken Kitchen home">
+        <a href="#" className="flex items-baseline gap-1.5 shrink-0" aria-label="Kay's Chicken Kitchen home">
           <span
-            className="text-xl md:text-2xl font-bold tracking-wider"
-            style={{ fontFamily: "var(--font-heading)", color: "var(--gold)" }}
+            className="text-2xl md:text-3xl font-bold"
+            style={{ fontFamily: "var(--font-heading)", color: "var(--gold)", letterSpacing: "0.02em" }}
           >
             KAY&apos;S
           </span>
           <span
-            className="text-xs md:text-sm tracking-widest text-white/80 hidden sm:block"
+            className="text-[10px] md:text-xs tracking-[0.2em] text-white/70 uppercase"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            CHICKEN KITCHEN
+            Chicken Kitchen
           </span>
         </a>
 
@@ -59,12 +72,49 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Order Button */}
-        <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-gold hidden md:inline-flex !py-2 !px-6 !text-sm">
-          Order Online
-        </a>
+        {/* Desktop Order Button with Dropdown */}
+        <div className="hidden md:block relative" ref={orderRef}>
+          <button
+            onClick={() => setOrderOpen(!orderOpen)}
+            className="btn-gold !py-2.5 !px-6 !text-sm flex items-center gap-2"
+          >
+            Order Online
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          {orderOpen && (
+            <div
+              className="absolute right-0 top-full mt-2 w-56 rounded-lg overflow-hidden shadow-2xl"
+              style={{ background: "var(--dark)", border: "1px solid rgba(255,255,255,0.1)" }}
+            >
+              <a
+                href={ORDER_CAUSEWAY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 px-5 py-3.5 text-sm text-white hover:bg-white/10 transition-colors border-b border-white/5"
+                style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}
+                onClick={() => setOrderOpen(false)}
+              >
+                <span className="w-2 h-2 rounded-full bg-[#FFD700]" />
+                Causeway Blvd
+              </a>
+              <a
+                href={ORDER_BEARSS}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 px-5 py-3.5 text-sm text-white hover:bg-white/10 transition-colors"
+                style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}
+                onClick={() => setOrderOpen(false)}
+              >
+                <span className="w-2 h-2 rounded-full bg-[#CC0000]" />
+                Bearss Ave
+              </a>
+            </div>
+          )}
+        </div>
 
-        {/* Mobile: hamburger only — Order is in the sticky bottom bar */}
+        {/* Mobile: hamburger only */}
         <div className="flex items-center gap-3 md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -72,21 +122,9 @@ export default function Header() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>
       </div>
@@ -106,14 +144,30 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <p className="text-xs text-white/40 mt-4 mb-2 uppercase tracking-widest" style={{ fontFamily: "var(--font-heading)" }}>
+              Order Online
+            </p>
             <a
-              href={ORDER_URL}
+              href={ORDER_CAUSEWAY}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold mt-4 text-center"
+              className="py-3 text-base tracking-wider text-[#FFD700] hover:text-white transition-colors border-b border-white/5 flex items-center gap-3"
+              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
               onClick={() => setMenuOpen(false)}
             >
-              Order Online
+              <span className="w-2 h-2 rounded-full bg-[#FFD700]" />
+              Causeway Blvd
+            </a>
+            <a
+              href={ORDER_BEARSS}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 text-base tracking-wider text-[#FFD700] hover:text-white transition-colors flex items-center gap-3"
+              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="w-2 h-2 rounded-full bg-[#CC0000]" />
+              Bearss Ave
             </a>
           </nav>
         </div>

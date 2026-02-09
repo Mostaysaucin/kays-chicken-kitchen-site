@@ -4,7 +4,7 @@ const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a
 export default function Footer() {
   return (
     <footer className="site-footer section-padding" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           {/* Brand Column */}
           <div>
@@ -29,12 +29,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-sm tracking-widest mb-4"
-              style={{
-                fontFamily: "var(--font-heading)",
-                color: "var(--gold)",
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-              }}
+              style={{ fontFamily: "var(--font-heading)", color: "var(--gold)", textTransform: "uppercase", letterSpacing: "0.15em" }}
             >
               Our Locations
             </h4>
@@ -64,11 +59,7 @@ export default function Footer() {
                 </a>
               </div>
               <div>
-                <a
-                  href="tel:8138930415"
-                  className="text-sm font-bold hover:underline"
-                  style={{ color: "var(--red)" }}
-                >
+                <a href="tel:8138930415" className="text-sm font-bold hover:underline" style={{ color: "var(--red)" }}>
                   (813) 893-0415
                 </a>
               </div>
@@ -79,12 +70,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-sm tracking-widest mb-4"
-              style={{
-                fontFamily: "var(--font-heading)",
-                color: "var(--gold)",
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-              }}
+              style={{ fontFamily: "var(--font-heading)", color: "var(--gold)", textTransform: "uppercase", letterSpacing: "0.15em" }}
             >
               Order Online
             </h4>
@@ -93,49 +79,50 @@ export default function Footer() {
                 href={ORDER_CAUSEWAY}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold w-full text-center !text-sm !py-3"
+                className="flex items-center gap-3 text-sm text-white hover:text-[#FFD700] transition-colors"
               >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFD700] shrink-0" />
                 Causeway Blvd
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto opacity-40">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
               </a>
               <a
                 href={ORDER_BEARSS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold w-full text-center !text-sm !py-3"
+                className="flex items-center gap-3 text-sm text-white hover:text-[#FFD700] transition-colors"
               >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CC0000] shrink-0" />
                 Bearss Ave
-              </a>
-              <a
-                href="https://instagram.com/kayschickenkitchen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm hover:text-[#FFD700] transition-colors mt-4"
-                style={{ color: "var(--text-muted)" }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto opacity-40">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
-                @kayschickenkitchen
               </a>
+
+              {/* Social */}
+              <div className="pt-4 mt-1 border-t border-white/5">
+                <a
+                  href="https://instagram.com/kayschickenkitchen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm hover:text-[#FFD700] transition-colors"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <circle cx="12" cy="12" r="5" />
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                  </svg>
+                  @kayschickenkitchen
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div
-          className="pt-8 text-center"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
-        >
+        <div className="pt-8 text-center" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
           <p className="text-xs" style={{ color: "var(--text-muted)" }}>
             &copy; {new Date().getFullYear()} Kay&apos;s Chicken Kitchen, Est. 2017. All rights reserved.
           </p>
