@@ -2,12 +2,8 @@ export default function SignatureSauce() {
   return (
     <section
       id="sauce"
-      className="relative flex items-center justify-center text-center overflow-hidden"
-      style={{
-        background: "var(--red)",
-        maxHeight: "40vh",
-        minHeight: "280px",
-      }}
+      className="section-padding relative text-center overflow-hidden"
+      style={{ background: "var(--red)" }}
     >
       {/* Subtle pattern */}
       <div
@@ -18,7 +14,7 @@ export default function SignatureSauce() {
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-6 py-16">
+      <div className="relative z-10 max-w-6xl mx-auto">
         <h2
           className="text-2xl sm:text-3xl md:text-4xl mb-4"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "white" }}

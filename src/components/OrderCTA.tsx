@@ -5,8 +5,8 @@ export default function OrderCTA() {
   return (
     <section
       id="order"
-      className="relative flex items-center justify-center text-center overflow-hidden"
-      style={{ background: "var(--red)", padding: "80px 24px" }}
+      className="section-padding relative text-center overflow-hidden"
+      style={{ background: "var(--red)" }}
     >
       {/* Subtle pattern */}
       <div
@@ -16,7 +16,7 @@ export default function OrderCTA() {
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         <h2
           className="text-3xl sm:text-4xl md:text-5xl mb-3"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "white" }}
