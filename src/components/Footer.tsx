@@ -4,7 +4,7 @@ const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a
 export default function Footer() {
   return (
     <footer className="site-footer section-padding" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           {/* Brand Column */}
           <div>

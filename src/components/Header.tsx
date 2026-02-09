@@ -43,18 +43,18 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <a href="#" className="flex items-baseline gap-1.5 shrink-0" aria-label="Kay's Chicken Kitchen home">
+        <a href="#" className="flex flex-col leading-none shrink-0" aria-label="Kay's Chicken Kitchen home">
           <span
-            className="text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "var(--font-heading)", color: "var(--gold)", letterSpacing: "0.02em" }}
+            className="text-xl sm:text-2xl md:text-3xl font-bold"
+            style={{ fontFamily: "var(--font-heading)", color: "var(--gold)", letterSpacing: "0.04em" }}
           >
-            KAY&apos;S
+            KAY&apos;S CHICKEN KITCHEN
           </span>
           <span
-            className="text-[10px] md:text-xs tracking-[0.2em] text-white/70 uppercase"
+            className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] text-white/50 uppercase mt-0.5"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Chicken Kitchen
+            Chicago Style &bull; Tampa, FL
           </span>
         </a>
 

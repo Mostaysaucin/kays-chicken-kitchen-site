@@ -48,7 +48,7 @@ export default function Catering() {
 
   return (
     <section id="catering" className="section-padding" style={{ background: "var(--bg-dark)" }}>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <p
@@ -70,7 +70,7 @@ export default function Catering() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 mb-12">
           {features.map((feature) => (
             <div
               key={feature.title}

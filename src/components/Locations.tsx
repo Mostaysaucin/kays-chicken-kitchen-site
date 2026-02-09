@@ -39,9 +39,9 @@ export default function Locations() {
 
   return (
     <section id="locations" className="section-padding" style={{ background: "var(--bg-warm)" }}>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <p
             className="text-sm tracking-widest mb-3"
             style={{ fontFamily: "var(--font-heading)", color: "var(--red)", textTransform: "uppercase", letterSpacing: "0.15em" }}
@@ -57,7 +57,7 @@ export default function Locations() {
         </div>
 
         {/* Location Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {locations.map((loc) => (
             <div
               key={loc.name}
@@ -78,7 +78,7 @@ export default function Locations() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6">
+              <div className="p-6 sm:p-8">
                 {/* Address + Phone */}
                 <div className="grid grid-cols-2 gap-4 mb-5">
                   <div>

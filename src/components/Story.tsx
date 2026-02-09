@@ -12,7 +12,7 @@ export default function Story() {
       className="section-padding"
       style={{ background: "var(--bg-warm)" }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Story Content */}
           <div>
