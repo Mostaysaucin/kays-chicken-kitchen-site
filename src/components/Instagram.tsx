@@ -1,11 +1,12 @@
 export default function Instagram() {
+  /* REAL photos from Kay's website and DoorDash */
   const gridItems = [
-    { img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=600&q=80&auto=format", label: "Wings" },
-    { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format", label: "Fish & Chips" },
-    { img: "https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=600&q=80&auto=format", label: "Shrimp" },
-    { img: "https://images.unsplash.com/photo-1608039829572-9b7218c0e14e?w=600&q=80&auto=format", label: "Mild Sauce" },
-    { img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80&auto=format", label: "Fresh & Hot" },
-    { img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80&auto=format", label: "Combos" },
+    { img: "https://static.wixstatic.com/media/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg", label: "Wings" },
+    { img: "https://static.wixstatic.com/media/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg", label: "Grouper" },
+    { img: "https://static.wixstatic.com/media/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png/v1/fill/w_600,h_600,al_c,q_85/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png", label: "Shrimp" },
+    { img: "https://static.wixstatic.com/media/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg", label: "Chicken Sandwich" },
+    { img: "https://static.wixstatic.com/media/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg", label: "Pizza Puffs" },
+    { img: "https://static.wixstatic.com/media/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg", label: "Chicken Strips" },
   ];
 
   return (

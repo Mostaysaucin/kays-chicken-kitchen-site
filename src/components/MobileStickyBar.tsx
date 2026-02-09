@@ -1,4 +1,4 @@
-const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+const ORDER_URL = "https://kayschickenkitchen.smartonlineorder.com";
 
 export default function MobileStickyBar() {
   return (

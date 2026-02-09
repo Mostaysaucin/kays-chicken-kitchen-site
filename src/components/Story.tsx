@@ -68,7 +68,7 @@ export default function Story() {
 
           {/* Right: Image & Stats */}
           <div>
-            {/* Food image */}
+            {/* REAL food image from Kay's website */}
             <div
               className="rounded-xl mb-8 overflow-hidden"
               style={{
@@ -77,8 +77,8 @@ export default function Story() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1562967914-608f82629710?w=800&q=80&auto=format"
-                alt="Golden crispy fried chicken wings with seasoning"
+                src="https://static.wixstatic.com/media/8b06b4_0adbf0d8a7204259a87d3dbbb2125068~mv2.jpg/v1/fill/w_800,h_800,al_c,q_80/8b06b4_0adbf0d8a7204259a87d3dbbb2125068~mv2.jpg"
+                alt="Kay's Chicken Kitchen wings, shrimp, and fries with mild sauce"
                 style={{
                   width: "100%",
                   height: "100%",

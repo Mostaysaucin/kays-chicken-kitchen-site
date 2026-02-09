@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+const ORDER_URL = "https://kayschickenkitchen.smartonlineorder.com";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -64,11 +64,8 @@ export default function Header() {
           Order Online
         </a>
 
-        {/* Mobile Controls */}
+        {/* Mobile: hamburger only — Order is in the sticky bottom bar */}
         <div className="flex items-center gap-3 md:hidden">
-          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-gold !py-2 !px-4 !text-xs">
-            Order
-          </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="w-10 h-10 flex flex-col items-center justify-center gap-1.5"

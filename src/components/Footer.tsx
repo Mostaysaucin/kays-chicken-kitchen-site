@@ -1,4 +1,5 @@
-const ORDER_URL = "https://www.clover.com/online-ordering/kays-kitchen-tampa";
+const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
+const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
 
 export default function Footer() {
   return (
@@ -74,7 +75,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Social & Order Column */}
+          {/* Order & Social Column */}
           <div>
             <h4
               className="text-sm tracking-widest mb-4"
@@ -85,14 +86,30 @@ export default function Footer() {
                 letterSpacing: "0.15em",
               }}
             >
-              Connect
+              Order Online
             </h4>
             <div className="space-y-3">
+              <a
+                href={ORDER_CAUSEWAY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold w-full text-center !text-sm !py-3"
+              >
+                Causeway Blvd
+              </a>
+              <a
+                href={ORDER_BEARSS}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold w-full text-center !text-sm !py-3"
+              >
+                Bearss Ave
+              </a>
               <a
                 href="https://instagram.com/kayschickenkitchen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm hover:text-[#FFD700] transition-colors"
+                className="flex items-center gap-3 text-sm hover:text-[#FFD700] transition-colors mt-4"
                 style={{ color: "var(--text-muted)" }}
               >
                 <svg
@@ -109,14 +126,6 @@ export default function Footer() {
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
                 </svg>
                 @kayschickenkitchen
-              </a>
-              <a
-                href={ORDER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold w-full text-center !text-sm !py-3 mt-4"
-              >
-                Order Online
               </a>
             </div>
           </div>

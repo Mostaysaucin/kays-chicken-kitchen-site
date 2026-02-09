@@ -7,11 +7,11 @@ export default function Hero() {
         minHeight: "100vh",
       }}
     >
-      {/* Background image */}
+      {/* Background image — REAL photo from Kay's website */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=1920&q=80&auto=format')",
+          backgroundImage: "url('https://static.wixstatic.com/media/8b06b4_2f62a41d599344f3ae2445223948891f~mv2.jpg/v1/fill/w_1920,h_1280,al_c,q_85,enc_avif,quality_auto/8b06b4_2f62a41d599344f3ae2445223948891f~mv2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -20,7 +20,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(180deg, rgba(15, 15, 15, 0.65) 0%, rgba(15, 15, 15, 0.85) 100%)",
+          background: "linear-gradient(180deg, rgba(15, 15, 15, 0.6) 0%, rgba(15, 15, 15, 0.8) 100%)",
         }}
       />
 
@@ -59,7 +59,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
-          <a href="https://www.clover.com/online-ordering/kays-kitchen-tampa" target="_blank" rel="noopener noreferrer" className="btn-gold">
+          <a href="https://kayschickenkitchen.smartonlineorder.com" target="_blank" rel="noopener noreferrer" className="btn-gold">
             Order Online
           </a>
           <a href="#menu" className="btn-red-outline">
