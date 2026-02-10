@@ -1,27 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --red: #CC0000;
-  --gold: #FFD700;
-  --dark: #1A1A1A;
-  --bg-dark: #0F0F0F;
-  --bg-warm: #FAFAF5;
+  --primary: #DD2803;
+  --secondary: #FFFF00;
+  --accent: #282626;
+  --background: #0F0F0F;
   --surface: #1C1C1C;
-  --white: #FFFFFF;
-  --text-muted: #A0A0A0;
+  --background-alt: #FAFAF5;
+  --text-primary: #FFFFFF;
+  --text-primary-on-light: #1A1A1A;
+  --text-secondary: #B0B0B0;
+  --text-on-primary: #FFFFFF;
+  --text-on-secondary: #1A1A1A;
+  --primary-light: #FF4433;
+  --primary-dark: #AA1F02;
+  --secondary-light: #FFFF66;
+  --secondary-dark: #CCCC00;
+  --surface-light: #FFFFFF;
+  --text-secondary-on-light: #6B7280;
+  --success: #16A34A;
+  --error: #DC2626;
   --font-heading: 'Oswald', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-accent: 'Playfair Display', serif;
 }
 
 @theme inline {
-  --color-red: var(--red);
-  --color-gold: var(--gold);
-  --color-dark: var(--dark);
-  --color-bg-dark: var(--bg-dark);
-  --color-bg-warm: var(--bg-warm);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-bg-dark: var(--background);
+  --color-bg-warm: var(--background-alt);
   --color-surface: var(--surface);
-  --color-text-muted: var(--text-muted);
+  --color-text-secondary: var(--text-secondary);
 }
 
 * {
@@ -35,8 +46,8 @@ html {
 }
 
 body {
-  background: var(--bg-dark);
-  color: var(--white);
+  background: var(--background);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
@@ -66,14 +77,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--surface);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--red);
+  background: var(--primary);
 }
 
 /* Menu tabs horizontal scroll */
@@ -83,11 +94,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .menu-tabs::-webkit-scrollbar {
   display: none;
-}
-
-/* Gold star rating */
-.star-gold {
-  color: var(--gold);
 }
 
 /* Animations */
@@ -117,24 +123,24 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 6px;
   padding: 6px 16px;
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(255, 255, 0, 0.3);
   border-radius: 9999px;
   font-size: 12px;
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--gold);
-  background: rgba(255, 215, 0, 0.08);
+  color: var(--secondary);
+  background: rgba(255, 255, 0, 0.08);
 }
 
 /* CTA Button styles */
-.btn-gold {
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 16px 40px;
-  background: var(--gold);
-  color: var(--dark);
+  background: var(--secondary);
+  color: var(--text-on-secondary);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 16px;
@@ -148,36 +154,10 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 48px;
   min-width: 48px;
 }
-.btn-gold:hover {
-  background: #E6C200;
+.btn-primary:hover {
+  filter: brightness(0.9);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
-}
-
-.btn-red-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 40px;
-  background: transparent;
-  color: var(--white);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border: 2px solid var(--red);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  min-height: 48px;
-  min-width: 48px;
-}
-.btn-red-outline:hover {
-  background: var(--red);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 255, 0, 0.3);
 }
 
 .btn-red {
@@ -185,8 +165,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   padding: 16px 40px;
-  background: var(--red);
-  color: var(--white);
+  background: var(--primary);
+  color: var(--text-on-primary);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 16px;
@@ -201,8 +181,34 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 48px;
 }
 .btn-red:hover {
-  background: #A30000;
+  filter: brightness(0.85);
   transform: translateY(-2px);
+}
+
+.btn-red-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-height: 48px;
+  min-width: 48px;
+}
+.btn-red-outline:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(221, 40, 3, 0.3);
 }
 
 .btn-white-outline {
@@ -211,13 +217,13 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   padding: 16px 40px;
   background: transparent;
-  color: var(--white);
+  color: var(--text-primary);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border: 2px solid var(--white);
+  border: 2px solid var(--text-primary);
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -230,20 +236,20 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-/* Section padding */
+/* MANDATORY section padding — used on EVERY section */
 .section-padding {
   padding: 80px 24px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .section-padding {
-    padding: 100px 48px;
+    padding: 80px 32px;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 120px 64px;
+    padding: 80px 48px;
   }
 }
 
@@ -254,8 +260,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 50;
-  background: var(--dark);
-  border-top: 2px solid var(--red);
+  background: var(--accent);
+  border-top: 2px solid var(--primary);
   padding: 12px 16px;
   display: flex;
   align-items: center;

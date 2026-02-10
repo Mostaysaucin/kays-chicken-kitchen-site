@@ -16,7 +16,7 @@ export default function MobileStickyBar() {
             href={ORDER_CAUSEWAY}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold flex-1 text-center !py-3 !text-xs !px-2"
+            className="btn-primary flex-1 text-center !py-3 !text-xs !px-2"
           >
             Causeway Blvd
           </a>
@@ -24,13 +24,14 @@ export default function MobileStickyBar() {
             href={ORDER_BEARSS}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold flex-1 text-center !py-3 !text-xs !px-2"
+            className="btn-primary flex-1 text-center !py-3 !text-xs !px-2"
           >
             Bearss Ave
           </a>
           <button
             onClick={() => setExpanded(false)}
-            className="text-white/60 px-2 text-lg"
+            className="px-2 text-lg"
+            style={{ color: "var(--text-secondary)" }}
             aria-label="Close"
           >
             &times;
@@ -39,7 +40,7 @@ export default function MobileStickyBar() {
       ) : (
         <button
           onClick={() => setExpanded(true)}
-          className="btn-gold w-full text-center !py-3"
+          className="btn-primary w-full text-center !py-3"
         >
           Order Online Now
         </button>

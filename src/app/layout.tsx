@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kay's Chicken Kitchen | Chicago Style Fried Chicken & Fish in Tampa, FL",
+  title: "Kay's Chicken Kitchen | Great Food The Chi-Town Way | Tampa, FL",
   description:
-    "Tampa's ONLY Chicago Style Fried Chicken & Fish with Authentic Chicago Style Mild Sauce. Black-owned, woman-owned. Two Tampa locations. Order online or visit us today!",
+    "Tampa's ONLY Chicago Style Fried Chicken & Fish with Authentic Chicago Style Mild Sauce. Black-owned, woman-owned. Two Tampa locations — Causeway Blvd & Bearss Ave. Order online today!",
   keywords:
-    "Kay's Chicken Kitchen, Chicago fried chicken Tampa, Chicago mild sauce, fried chicken Tampa FL, fish and chips Tampa, Black-owned restaurant Tampa, woman-owned restaurant",
+    "Kay's Chicken Kitchen, Chicago fried chicken Tampa, Chicago mild sauce, fried chicken Tampa FL, fish and chips Tampa, Black-owned restaurant Tampa, woman-owned restaurant, soul food Tampa, Kay Lee",
   openGraph: {
-    title: "Kay's Chicken Kitchen | Chicago's Finest Fried Chicken. Tampa's Favorite.",
+    title: "Kay's Chicken Kitchen | Great Food The Chi-Town Way",
     description:
-      "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce. Two locations in Tampa, FL.",
+      "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce. Two locations in Tampa, FL. Black-Owned. Woman-Owned. Est. 2017.",
     url: "https://kayschickenkitchen.com",
     siteName: "Kay's Chicken Kitchen",
     locale: "en_US",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kay's Chicken Kitchen | Chicago Fried Chicken in Tampa",
+    title: "Kay's Chicken Kitchen | Great Food The Chi-Town Way",
     description:
-      "Tampa's ONLY Chicago Style Fried Chicken & Fish with Authentic Chicago Style Mild Sauce.",
+      "Tampa's ONLY Chicago Style Fried Chicken & Fish with Authentic Chicago Style Mild Sauce. Two Tampa locations.",
   },
   robots: {
     index: true,
@@ -36,30 +36,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    name: "Kay's Chicken Kitchen",
-    alternateName: "Kay's Kitchen",
-    description:
-      "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce",
-    url: "https://kayschickenkitchen.com",
-    telephone: "+1-813-893-0415",
-    servesCuisine: ["American", "Fried Chicken", "Chicago Style"],
-    priceRange: "$$",
-    foundingDate: "2017",
-    founder: {
-      "@type": "Person",
-      name: "Kay Lee",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.7",
-      reviewCount: "200",
-      bestRating: "5",
-    },
-    address: [
-      {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "@id": "https://kayschickenkitchen.com/#causeway",
+      name: "Kay's Chicken Kitchen - Causeway Blvd",
+      alternateName: "Kay's Kitchen",
+      description:
+        "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce. Drive-Thru location.",
+      url: "https://kayschickenkitchen.com",
+      telephone: "+1-813-893-0415",
+      email: "kayssmokehouse@gmail.com",
+      servesCuisine: ["American", "Fried Chicken", "Chicago Style", "Soul Food"],
+      priceRange: "$$",
+      foundingDate: "2017",
+      founder: {
+        "@type": "Person",
+        name: "Kay Lee",
+        alternateName: "Ms. Kay",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.2",
+        reviewCount: "171",
+        bestRating: "5",
+      },
+      address: {
         "@type": "PostalAddress",
         streetAddress: "10323 Causeway Blvd",
         addressLocality: "Tampa",
@@ -67,7 +70,46 @@ export default function RootLayout({
         postalCode: "33619",
         addressCountry: "US",
       },
-      {
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "11:00",
+          closes: "20:30",
+        },
+      ],
+      sameAs: [
+        "https://instagram.com/kayschickenkitchen",
+        "https://facebook.com/kayschickenkitchen",
+        "https://tiktok.com/@kayskitchentampa",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "@id": "https://kayschickenkitchen.com/#bearss",
+      name: "Kay's Chicken Kitchen - Bearss Ave",
+      alternateName: "Kay's Kitchen",
+      description:
+        "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce. Full-Service location with late night hours.",
+      url: "https://kayschickenkitchen.com",
+      telephone: "+1-813-893-0415",
+      email: "kayssmokehouse@gmail.com",
+      servesCuisine: ["American", "Fried Chicken", "Chicago Style", "Soul Food"],
+      priceRange: "$$",
+      foundingDate: "2017",
+      founder: {
+        "@type": "Person",
+        name: "Kay Lee",
+        alternateName: "Ms. Kay",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.6",
+        reviewCount: "206",
+        bestRating: "5",
+      },
+      address: {
         "@type": "PostalAddress",
         streetAddress: "2808 E Bearss Ave",
         addressLocality: "Tampa",
@@ -75,31 +117,33 @@ export default function RootLayout({
         postalCode: "33613",
         addressCountry: "US",
       },
-    ],
-    sameAs: ["https://instagram.com/kayschickenkitchen"],
-    hasMenu: {
-      "@type": "Menu",
-      name: "Kay's Chicken Kitchen Menu",
-      hasMenuSection: [
+      openingHoursSpecification: [
         {
-          "@type": "MenuSection",
-          name: "Wings",
-          hasMenuItem: [
-            { "@type": "MenuItem", name: "6 Piece Wings", offers: { "@type": "Offer", price: "15.49", priceCurrency: "USD" } },
-            { "@type": "MenuItem", name: "10 Piece Wings", offers: { "@type": "Offer", price: "22.00", priceCurrency: "USD" } },
-          ],
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Tuesday", "Wednesday", "Thursday"],
+          opens: "11:00",
+          closes: "02:00",
         },
         {
-          "@type": "MenuSection",
-          name: "Fish",
-          hasMenuItem: [
-            { "@type": "MenuItem", name: "2 Pcs Grouper", offers: { "@type": "Offer", price: "16.99", priceCurrency: "USD" } },
-            { "@type": "MenuItem", name: "Fish Sandwich", offers: { "@type": "Offer", price: "11.75", priceCurrency: "USD" } },
-          ],
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Friday", "Saturday"],
+          opens: "11:00",
+          closes: "04:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "12:00",
+          closes: "02:00",
         },
       ],
+      sameAs: [
+        "https://instagram.com/kayschickenkitchen",
+        "https://facebook.com/kayschickenkitchen",
+        "https://tiktok.com/@kayskitchentampa",
+      ],
     },
-  };
+  ];
 
   return (
     <html lang="en">

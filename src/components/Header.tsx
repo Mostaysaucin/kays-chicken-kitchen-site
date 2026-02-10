@@ -37,22 +37,25 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0F0F0F]/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
+      style={{
+        background: scrolled ? "rgba(15,15,15,0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.3)" : "none",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <a href="#" className="flex flex-col leading-none shrink-0" aria-label="Kay's Chicken Kitchen home">
           <span
             className="text-xl sm:text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "var(--font-heading)", color: "var(--gold)", letterSpacing: "0.04em" }}
+            style={{ fontFamily: "var(--font-heading)", color: "var(--secondary)", letterSpacing: "0.04em" }}
           >
             KAY&apos;S CHICKEN KITCHEN
           </span>
           <span
-            className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] text-white/50 uppercase mt-0.5"
-            style={{ fontFamily: "var(--font-heading)" }}
+            className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] uppercase mt-0.5"
+            style={{ fontFamily: "var(--font-heading)", color: "var(--text-secondary)" }}
           >
             Chicago Style &bull; Tampa, FL
           </span>
@@ -64,8 +67,14 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm tracking-wider text-white/80 hover:text-[#FFD700] transition-colors"
-              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
+              className="text-sm tracking-wider transition-colors"
+              style={{
+                fontFamily: "var(--font-heading)",
+                textTransform: "uppercase",
+                color: "var(--text-secondary)",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--secondary)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
             >
               {link.label}
             </a>
@@ -76,7 +85,7 @@ export default function Header() {
         <div className="hidden md:block relative" ref={orderRef}>
           <button
             onClick={() => setOrderOpen(!orderOpen)}
-            className="btn-gold !py-2.5 !px-6 !text-sm flex items-center gap-2"
+            className="btn-primary !py-2.5 !px-6 !text-sm flex items-center gap-2"
           >
             Order Online
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -86,28 +95,39 @@ export default function Header() {
           {orderOpen && (
             <div
               className="absolute right-0 top-full mt-2 w-56 rounded-lg overflow-hidden shadow-2xl"
-              style={{ background: "var(--dark)", border: "1px solid rgba(255,255,255,0.1)" }}
+              style={{ background: "var(--accent)", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               <a
                 href={ORDER_CAUSEWAY}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3.5 text-sm text-white hover:bg-white/10 transition-colors border-b border-white/5"
-                style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}
+                className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  color: "var(--text-primary)",
+                  borderBottom: "1px solid rgba(255,255,255,0.05)",
+                }}
                 onClick={() => setOrderOpen(false)}
               >
-                <span className="w-2 h-2 rounded-full bg-[#FFD700]" />
+                <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
                 Causeway Blvd
               </a>
               <a
                 href={ORDER_BEARSS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3.5 text-sm text-white hover:bg-white/10 transition-colors"
-                style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}
+                className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  color: "var(--text-primary)",
+                }}
                 onClick={() => setOrderOpen(false)}
               >
-                <span className="w-2 h-2 rounded-full bg-[#CC0000]" />
+                <span className="w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
                 Bearss Ave
               </a>
             </div>
@@ -122,51 +142,56 @@ export default function Header() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} style={{ background: "var(--text-primary)" }} />
+            <span className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} style={{ background: "var(--text-primary)" }} />
+            <span className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} style={{ background: "var(--text-primary)" }} />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0F0F0F]/98 backdrop-blur-md border-t border-white/10">
+        <div className="md:hidden border-t" style={{ background: "rgba(15,15,15,0.98)", backdropFilter: "blur(12px)", borderColor: "rgba(255,255,255,0.1)" }}>
           <nav className="flex flex-col py-4 px-6" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="py-3 text-lg tracking-wider text-white/90 hover:text-[#FFD700] transition-colors border-b border-white/5"
-                style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
+                className="py-3 text-lg tracking-wider transition-colors border-b"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.9)",
+                  borderColor: "rgba(255,255,255,0.05)",
+                }}
               >
                 {link.label}
               </a>
             ))}
-            <p className="text-xs text-white/40 mt-4 mb-2 uppercase tracking-widest" style={{ fontFamily: "var(--font-heading)" }}>
+            <p className="text-xs mt-4 mb-2 uppercase tracking-widest" style={{ fontFamily: "var(--font-heading)", color: "var(--text-secondary)" }}>
               Order Online
             </p>
             <a
               href={ORDER_CAUSEWAY}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 text-base tracking-wider text-[#FFD700] hover:text-white transition-colors border-b border-white/5 flex items-center gap-3"
-              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
+              className="py-3 text-base tracking-wider transition-colors border-b flex items-center gap-3"
+              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)", borderColor: "rgba(255,255,255,0.05)" }}
               onClick={() => setMenuOpen(false)}
             >
-              <span className="w-2 h-2 rounded-full bg-[#FFD700]" />
+              <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
               Causeway Blvd
             </a>
             <a
               href={ORDER_BEARSS}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 text-base tracking-wider text-[#FFD700] hover:text-white transition-colors flex items-center gap-3"
-              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase" }}
+              className="py-3 text-base tracking-wider transition-colors flex items-center gap-3"
+              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)" }}
               onClick={() => setMenuOpen(false)}
             >
-              <span className="w-2 h-2 rounded-full bg-[#CC0000]" />
+              <span className="w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
               Bearss Ave
             </a>
           </nav>

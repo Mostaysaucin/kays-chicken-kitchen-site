@@ -1,16 +1,16 @@
 export default function Story() {
   const stats = [
     { value: "2017", label: "Founded" },
-    { value: "29K+", label: "Instagram Followers" },
-    { value: "4.5", label: "Star Rating" },
-    { value: "2", label: "Tampa Locations" },
+    { value: "29K+", label: "IG Followers" },
+    { value: "4.4", label: "Star Rating" },
+    { value: "776+", label: "Reviews" },
   ];
 
   return (
     <section
       id="story"
       className="section-padding"
-      style={{ background: "var(--bg-warm)" }}
+      style={{ background: "var(--background-alt)" }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -20,7 +20,7 @@ export default function Story() {
               className="text-sm tracking-widest mb-4"
               style={{
                 fontFamily: "var(--font-heading)",
-                color: "var(--red)",
+                color: "var(--primary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
               }}
@@ -28,20 +28,20 @@ export default function Story() {
               Our Story
             </p>
             <h2
-              className="font-accent text-3xl sm:text-4xl md:text-5xl mb-8"
+              className="text-4xl sm:text-5xl mb-8"
               style={{
-                color: "var(--dark)",
                 fontFamily: "var(--font-accent)",
                 fontWeight: 400,
                 fontStyle: "italic",
                 textTransform: "none",
                 letterSpacing: "0",
                 lineHeight: 1.2,
+                color: "var(--text-primary-on-light)",
               }}
             >
               From a Chicago Kitchen to Tampa&apos;s Table
             </h2>
-            <div className="space-y-5" style={{ color: "#4A4A4A", fontSize: "16px", lineHeight: 1.8 }}>
+            <div className="space-y-5" style={{ color: "var(--text-primary-on-light)", fontSize: "16px", lineHeight: 1.8 }}>
               <p>
                 Kay Lee grew up in the kitchens of Chicago&apos;s South Side, where fried chicken
                 wasn&apos;t just food &mdash; it was family, it was culture, it was home. Every bite
@@ -49,9 +49,10 @@ export default function Story() {
                 Chicago&apos;s legendary mild sauce.
               </p>
               <p>
-                When Kay moved to Tampa, she discovered something was missing. Nobody was doing
-                Chicago-style fried chicken. Nobody had the mild sauce. So in 2017, she launched a
-                food trailer with one mission: bring the real Chicago flavor to Tampa Bay.
+                When Ms. Kay moved to Tampa, she discovered something was missing. Nobody was doing
+                Chicago-style fried chicken. Nobody had the mild sauce. So in 2017, she and her
+                husband Alvin launched a food trailer with one mission: bring the real Chicago flavor
+                to Tampa Bay.
               </p>
               <p>
                 What started as a trailer became a movement. Through the challenges of COVID-19, Kay
@@ -59,11 +60,38 @@ export default function Story() {
                 two thriving Tampa locations &mdash; a drive-thru on Causeway Blvd and a full-service
                 restaurant on Bearss Ave &mdash; and has been featured on FOX 13 Tampa Bay.
               </p>
-              <p style={{ fontWeight: 700, color: "var(--dark)" }}>
-                One thing hasn&apos;t changed: every piece of chicken is made with love, and the
-                only sauce you&apos;ll find is the authentic Chicago mild sauce. No ketchup. Ever.
-              </p>
             </div>
+
+            {/* Owner Quote */}
+            <blockquote
+              className="mt-8 pl-6"
+              style={{
+                borderLeft: "3px solid var(--primary)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-accent)",
+                  fontStyle: "italic",
+                  fontSize: "18px",
+                  lineHeight: 1.6,
+                  color: "var(--text-primary-on-light)",
+                }}
+              >
+                &ldquo;It has a distinct taste. It&apos;s Ms. Kay&apos;s. Nobody in Tampa is cooking like Ms. Kay&apos;s.&rdquo;
+              </p>
+              <cite
+                className="block mt-3 text-sm not-italic"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  color: "var(--primary)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                &mdash; Ms. Kay Lee, Owner &amp; Founder
+              </cite>
+            </blockquote>
           </div>
 
           {/* Right: Image & Stats */}
@@ -113,7 +141,7 @@ export default function Story() {
                     style={{
                       fontFamily: "var(--font-heading)",
                       fontWeight: 700,
-                      color: "var(--red)",
+                      color: "var(--primary)",
                     }}
                   >
                     {stat.value}
@@ -123,7 +151,7 @@ export default function Story() {
                     style={{
                       fontFamily: "var(--font-heading)",
                       textTransform: "uppercase",
-                      color: "#666",
+                      color: "var(--text-secondary-on-light)",
                       letterSpacing: "0.1em",
                     }}
                   >
