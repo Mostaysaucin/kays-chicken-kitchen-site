@@ -1,5 +1,4 @@
-const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
-const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
+import { ORDER_CAUSEWAY, ORDER_BEARSS, PHONE, PHONE_HREF, EMAIL, INSTAGRAM_URL, FACEBOOK_URL, TIKTOK_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -27,40 +26,40 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
-                href="https://instagram.com/kayschickenkitchen"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors"
                 style={{ color: "var(--text-secondary)" }}
                 aria-label="Instagram"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <circle cx="12" cy="12" r="5" />
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
                 </svg>
               </a>
               <a
-                href="https://facebook.com/kayschickenkitchen"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors"
                 style={{ color: "var(--text-secondary)" }}
                 aria-label="Facebook"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
               <a
-                href="https://tiktok.com/@kayskitchentampa"
+                href={TIKTOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors"
                 style={{ color: "var(--text-secondary)" }}
                 aria-label="TikTok"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
                 </svg>
               </a>
@@ -103,12 +102,12 @@ export default function Footer() {
                 <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>Tue-Thu 11am-2am | Fri-Sat 11am-4am | Sun 12pm-2am</p>
               </div>
               <div>
-                <a href="tel:8138930415" className="text-sm font-bold hover:underline" style={{ color: "var(--primary)" }}>
-                  (813) 893-0415
+                <a href={PHONE_HREF} className="text-sm font-bold hover:underline" style={{ color: "var(--primary)" }}>
+                  {PHONE}
                 </a>
                 <span className="mx-2" style={{ color: "var(--text-secondary)" }}>|</span>
-                <a href="mailto:kayssmokehouse@gmail.com" className="text-sm hover:underline" style={{ color: "var(--text-secondary)" }}>
-                  kayssmokehouse@gmail.com
+                <a href={`mailto:${EMAIL}`} className="text-sm hover:underline" style={{ color: "var(--text-secondary)" }}>
+                  {EMAIL}
                 </a>
               </div>
             </div>
@@ -132,7 +131,7 @@ export default function Footer() {
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--secondary)" }} />
                 Causeway Blvd
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto opacity-40">
+                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto opacity-40">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
@@ -145,7 +144,7 @@ export default function Footer() {
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--primary)" }} />
                 Bearss Ave
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto opacity-40">
+                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto opacity-40">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
@@ -174,7 +173,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 text-center" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
           <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-            &copy; {new Date().getFullYear()} Kay&apos;s Chicken Kitchen, Est. 2017. All rights reserved. | Black-Owned &amp; Woman-Owned
+            &copy; 2026 Kay&apos;s Chicken Kitchen, Est. 2017. All rights reserved. | Black-Owned &amp; Woman-Owned
           </p>
         </div>
       </div>

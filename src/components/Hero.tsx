@@ -1,5 +1,4 @@
-const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
-const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
+import { ORDER_CAUSEWAY, ORDER_BEARSS, HERO_BG_IMAGE } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -12,7 +11,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "url('https://static.wixstatic.com/media/8b06b4_2f62a41d599344f3ae2445223948891f~mv2.jpg/v1/fill/w_1920,h_1280,al_c,q_85,enc_avif,quality_auto/8b06b4_2f62a41d599344f3ae2445223948891f~mv2.jpg')",
+          backgroundImage: `url('${HERO_BG_IMAGE}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

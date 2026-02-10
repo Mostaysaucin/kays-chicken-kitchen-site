@@ -1,5 +1,4 @@
-const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
-const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
+import { ORDER_CAUSEWAY, ORDER_BEARSS, PHONE, PHONE_HREF } from "@/lib/constants";
 
 export default function Locations() {
   const locations = [
@@ -8,7 +7,7 @@ export default function Locations() {
       type: "Drive-Thru",
       address: "10323 Causeway Blvd",
       city: "Tampa, FL 33619",
-      phone: "(813) 893-0415",
+      phone: PHONE,
       hours: [
         { days: "Tue - Sat", time: "11:00 AM - 8:30 PM" },
         { days: "Mon & Sun", time: "Closed" },
@@ -25,7 +24,7 @@ export default function Locations() {
       type: "Full-Service",
       address: "2808 E Bearss Ave",
       city: "Tampa, FL 33613",
-      phone: "(813) 893-0415",
+      phone: PHONE,
       hours: [
         { days: "Tue - Thu", time: "11:00 AM - 2:00 AM" },
         { days: "Fri - Sat", time: "11:00 AM - 4:00 AM" },
@@ -85,13 +84,13 @@ export default function Locations() {
               <div className="p-6 sm:p-8">
                 {/* Google Rating */}
                 <div className="flex items-center gap-2 mb-5">
-                  <div className="flex gap-0.5">
+                  <div className="flex gap-0.5" role="img" aria-label={`${loc.googleRating} out of 5 stars`}>
                     {[1, 2, 3, 4].map((i) => (
-                      <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="var(--secondary)">
+                      <svg key={i} aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="var(--secondary)">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                       </svg>
                     ))}
-                    <svg width="14" height="14" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24">
                       <defs>
                         <linearGradient id={`star-${loc.name}`}>
                           <stop offset={loc.name === "Causeway Blvd" ? "20%" : "60%"} stopColor="var(--secondary)" />
@@ -122,7 +121,7 @@ export default function Locations() {
                   </div>
                   <div>
                     <p className="text-[11px] tracking-wider mb-1.5 uppercase" style={{ fontFamily: "var(--font-heading)", color: "var(--text-secondary-on-light)" }}>Phone</p>
-                    <a href="tel:8138930415" className="text-sm font-bold hover:underline" style={{ color: "var(--primary)" }}>{loc.phone}</a>
+                    <a href={PHONE_HREF} className="text-sm font-bold hover:underline" style={{ color: "var(--primary)" }}>{loc.phone}</a>
                   </div>
                 </div>
 
@@ -160,7 +159,7 @@ export default function Locations() {
                     className="flex-1 text-center inline-flex items-center justify-center gap-2 py-3 text-sm font-bold rounded hover:bg-gray-50 transition-colors"
                     style={{ color: "var(--primary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em", border: "2px solid var(--primary)" }}
                   >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         {/* Section 1: Hero - Dark */}
         <Hero />
         {/* Section 2: Story - Warm Off-White */}

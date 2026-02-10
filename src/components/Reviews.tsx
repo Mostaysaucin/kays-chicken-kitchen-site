@@ -42,7 +42,7 @@ export default function Reviews() {
   const communityBadges = ["EatOkra", "Black Restaurant Weeks"];
 
   const StarIcon = ({ filled = true }: { filled?: boolean }) => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill={filled ? "var(--secondary)" : "#555"}>
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill={filled ? "var(--secondary)" : "#555"}>
       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
     </svg>
   );
@@ -65,14 +65,14 @@ export default function Reviews() {
           </p>
 
           {/* Stars */}
-          <div className="flex items-center justify-center gap-1 mb-3">
+          <div className="flex items-center justify-center gap-1 mb-3" role="img" aria-label="4.42 out of 5 stars">
             {[1, 2, 3, 4].map((i) => (
-              <svg key={i} width="28" height="28" viewBox="0 0 24 24" fill="var(--secondary)">
+              <svg key={i} aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="var(--secondary)">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             ))}
             {/* Partial star for 4.42 */}
-            <svg width="28" height="28" viewBox="0 0 24 24">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24">
               <defs>
                 <linearGradient id="halfGrad">
                   <stop offset="42%" stopColor="var(--secondary)" />
@@ -108,7 +108,7 @@ export default function Reviews() {
               }}
             >
               {/* Mini Stars */}
-              <div className="flex gap-0.5 mb-4">
+              <div className="flex gap-0.5 mb-4" role="img" aria-label={`${review.rating} out of 5 stars`}>
                 {[1, 2, 3, 4, 5].map((i) => (
                   <StarIcon key={i} filled={i <= review.rating} />
                 ))}

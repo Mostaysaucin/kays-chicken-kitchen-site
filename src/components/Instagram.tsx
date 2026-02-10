@@ -54,6 +54,8 @@ export default function Instagram() {
               <img
                 src={item.img}
                 alt={item.label}
+                width={600}
+                height={600}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />

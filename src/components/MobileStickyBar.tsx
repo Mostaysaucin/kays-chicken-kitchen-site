@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
-const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
+import { ORDER_CAUSEWAY, ORDER_BEARSS } from "@/lib/constants";
 
 export default function MobileStickyBar() {
   const [expanded, setExpanded] = useState(false);

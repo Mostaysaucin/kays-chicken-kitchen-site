@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
-const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
+import { ORDER_CAUSEWAY, ORDER_BEARSS } from "@/lib/constants";
 
 interface MenuItem {
   name: string;
@@ -156,6 +154,7 @@ export default function Menu() {
           {menuData.map((category) => (
             <button
               key={category.id}
+              id={`tab-${category.id}`}
               role="tab"
               aria-selected={activeCategory === category.id}
               aria-controls={`panel-${category.id}`}
@@ -183,15 +182,16 @@ export default function Menu() {
 
         {/* Menu Items */}
         <div
+          key={currentCategory.id}
           id={`panel-${currentCategory.id}`}
           role="tabpanel"
-          aria-labelledby={currentCategory.id}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          aria-labelledby={`tab-${currentCategory.id}`}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 menu-panel-enter"
         >
           {currentCategory.items.map((item) => (
             <div
               key={item.name}
-              className="flex gap-4 p-4 rounded-xl transition-all duration-200"
+              className="flex gap-4 p-4 rounded-xl menu-item-card"
               style={{
                 background: "var(--surface)",
                 border: "1px solid rgba(255,255,255,0.08)",
@@ -203,6 +203,8 @@ export default function Menu() {
                   <img
                     src={item.img}
                     alt={item.name}
+                    width={400}
+                    height={400}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />

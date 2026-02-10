@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-
-const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
-const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { ORDER_CAUSEWAY, ORDER_BEARSS } from "@/lib/constants";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
   const orderRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -25,6 +25,39 @@ export default function Header() {
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  // Global Escape key handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (orderOpen) setOrderOpen(false);
+        if (menuOpen) {
+          setMenuOpen(false);
+          hamburgerRef.current?.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [orderOpen, menuOpen]);
+
+  // Focus trap for mobile menu
+  const handleMenuKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key !== "Tab" || !mobileMenuRef.current) return;
+    const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   }, []);
 
   const navLinks = [
@@ -88,7 +121,7 @@ export default function Header() {
             className="btn-primary !py-2.5 !px-6 !text-sm flex items-center gap-2"
           >
             Order Online
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
@@ -137,6 +170,7 @@ export default function Header() {
         {/* Mobile: hamburger only */}
         <div className="flex items-center gap-3 md:hidden">
           <button
+            ref={hamburgerRef}
             onClick={() => setMenuOpen(!menuOpen)}
             className="w-10 h-10 flex flex-col items-center justify-center gap-1.5"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -151,7 +185,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden border-t" style={{ background: "rgba(15,15,15,0.98)", backdropFilter: "blur(12px)", borderColor: "rgba(255,255,255,0.1)" }}>
+        <div ref={mobileMenuRef} onKeyDown={handleMenuKeyDown} className="md:hidden border-t" style={{ background: "rgba(15,15,15,0.98)", backdropFilter: "blur(12px)", borderColor: "rgba(255,255,255,0.1)" }}>
           <nav className="flex flex-col py-4 px-6" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <a

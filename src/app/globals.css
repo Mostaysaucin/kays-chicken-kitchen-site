@@ -41,6 +41,12 @@
   box-sizing: border-box;
 }
 
+/* Accessible focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -272,6 +278,39 @@ h1, h2, h3, h4, h5, h6 {
   .mobile-sticky-bar {
     display: none;
   }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Menu item hover effect */
+.menu-item-card {
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.menu-item-card:hover {
+  border-color: rgba(221, 40, 3, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Menu panel enter animation */
+@keyframes menuPanelFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.menu-panel-enter {
+  animation: menuPanelFadeIn 0.3s ease-out;
 }
 
 /* Ensure bottom padding on mobile for sticky bar */

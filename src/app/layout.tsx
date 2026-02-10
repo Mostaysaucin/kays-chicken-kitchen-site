@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HERO_BG_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -148,6 +149,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preload" href={HERO_BG_IMAGE} as="image" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -159,7 +161,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[var(--primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
