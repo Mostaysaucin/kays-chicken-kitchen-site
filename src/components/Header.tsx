@@ -70,14 +70,14 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-padding`}
       style={{
         background: scrolled ? "rgba(15,15,15,0.95)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.3)" : "none",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-6xl mx-auto flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <a href="#" className="flex flex-col leading-none shrink-0" aria-label="Kay's Chicken Kitchen home">
           <span
