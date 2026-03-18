@@ -27,7 +27,7 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as LocationId | null;
+    const stored = sessionStorage.getItem(STORAGE_KEY) as LocationId | null;
     if (stored === "causeway" || stored === "bearss") {
       setSelectedLocation(stored);
     } else {
@@ -38,13 +38,13 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
 
   const setLocation = useCallback((id: LocationId) => {
     setSelectedLocation(id);
-    localStorage.setItem(STORAGE_KEY, id);
+    sessionStorage.setItem(STORAGE_KEY, id);
     setShowPicker(false);
   }, []);
 
   const dismissPicker = useCallback(() => {
     setSelectedLocation("bearss");
-    localStorage.setItem(STORAGE_KEY, "bearss");
+    sessionStorage.setItem(STORAGE_KEY, "bearss");
     setShowPicker(false);
   }, []);
 
