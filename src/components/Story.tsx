@@ -1,3 +1,5 @@
+import ScrollReveal from "./ScrollReveal";
+
 export default function Story() {
   const stats = [
     { value: "2017", label: "Founded" },
@@ -12,6 +14,7 @@ export default function Story() {
       className="section-padding"
       style={{ background: "var(--background-alt)" }}
     >
+      <ScrollReveal>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Story Content */}
@@ -57,7 +60,7 @@ export default function Story() {
               <p>
                 What started as a trailer became a movement. Through the challenges of COVID-19, Kay
                 kept cooking, kept serving, and kept growing. Today, Kay&apos;s Chicken Kitchen has
-                two thriving Tampa locations &mdash; a drive-thru on Causeway Blvd and a full-service
+                two thriving Tampa locations &mdash; a satellite location on Causeway Blvd and a full-service
                 restaurant on Bearss Ave &mdash; and has been featured on FOX 13 Tampa Bay.
               </p>
             </div>
@@ -166,6 +169,7 @@ export default function Story() {
           </div>
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }

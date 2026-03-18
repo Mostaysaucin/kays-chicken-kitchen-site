@@ -45,7 +45,7 @@ export default function RootLayout({
       name: "Kay's Chicken Kitchen - Causeway Blvd",
       alternateName: "Kay's Kitchen",
       description:
-        "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce. Drive-Thru location.",
+        "Tampa's ONLY Chicago Style Fried Chicken & Fish with the Authentic Chicago Style Mild Sauce. Satellite location. Card only, no cash.",
       url: "https://kayschickenkitchen.com",
       telephone: "+1-813-893-0415",
       email: "kayssmokehouse@gmail.com",

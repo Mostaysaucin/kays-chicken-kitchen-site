@@ -10,10 +10,12 @@ import Catering from "@/components/Catering";
 import OrderCTA from "@/components/OrderCTA";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import ClientProviders from "@/components/ClientProviders";
+import LocationPicker from "@/components/LocationPicker";
 
 export default function Home() {
   return (
-    <>
+    <ClientProviders>
       <Header />
       <main id="main-content">
         {/* Section 1: Hero - Dark */}
@@ -39,6 +41,8 @@ export default function Home() {
       <Footer />
       {/* Mobile Sticky Bottom Bar */}
       <MobileStickyBar />
-    </>
+      {/* Location Picker Modal */}
+      <LocationPicker />
+    </ClientProviders>
   );
 }

@@ -1,3 +1,5 @@
+import ScrollReveal from "./ScrollReveal";
+
 export default function SignatureSauce() {
   return (
     <section
@@ -14,7 +16,7 @@ export default function SignatureSauce() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <ScrollReveal className="relative z-10 max-w-6xl mx-auto">
         <h2
           className="text-4xl sm:text-5xl mb-4"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "var(--text-on-primary)" }}
@@ -52,7 +54,7 @@ export default function SignatureSauce() {
         <a href="#menu" className="btn-primary">
           Try It For Yourself
         </a>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

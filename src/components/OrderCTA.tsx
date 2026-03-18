@@ -1,6 +1,13 @@
-import { ORDER_CAUSEWAY, ORDER_BEARSS, PHONE, PHONE_HREF } from "@/lib/constants";
+"use client";
+
+import { LOCATIONS, PHONE, PHONE_HREF } from "@/lib/constants";
+import { useLocation } from "@/lib/location-context";
+import ScrollReveal from "./ScrollReveal";
 
 export default function OrderCTA() {
+  const { selectedLocation, hydrated } = useLocation();
+  const loc = selectedLocation ? LOCATIONS[selectedLocation] : null;
+
   return (
     <section
       id="order"
@@ -15,7 +22,7 @@ export default function OrderCTA() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <ScrollReveal className="relative z-10 max-w-6xl mx-auto">
         <h2
           className="text-4xl sm:text-5xl mb-3"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "var(--text-on-primary)" }}
@@ -26,22 +33,35 @@ export default function OrderCTA() {
           Order online for pickup or delivery from either Tampa location
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5">
-          <a
-            href={ORDER_CAUSEWAY}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary !text-sm w-full sm:w-auto"
-          >
-            Order &mdash; Causeway Blvd
-          </a>
-          <a
-            href={ORDER_BEARSS}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary !text-sm w-full sm:w-auto"
-          >
-            Order &mdash; Bearss Ave
-          </a>
+          {hydrated && loc ? (
+            <a
+              href={loc.orderUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary !text-sm w-full sm:w-auto"
+            >
+              Order &mdash; {loc.name}
+            </a>
+          ) : (
+            <>
+              <a
+                href={LOCATIONS.causeway.orderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary !text-sm w-full sm:w-auto"
+              >
+                Order &mdash; Causeway Blvd
+              </a>
+              <a
+                href={LOCATIONS.bearss.orderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary !text-sm w-full sm:w-auto"
+              >
+                Order &mdash; Bearss Ave
+              </a>
+            </>
+          )}
         </div>
         <a
           href={PHONE_HREF}
@@ -69,7 +89,7 @@ export default function OrderCTA() {
             </span>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

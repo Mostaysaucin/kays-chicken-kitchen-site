@@ -1,3 +1,5 @@
+import ScrollReveal from "./ScrollReveal";
+
 export default function Reviews() {
   const reviews = [
     {
@@ -51,6 +53,7 @@ export default function Reviews() {
     <section id="reviews" className="section-padding" style={{ background: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
         {/* Rating Header */}
+        <ScrollReveal>
         <div className="text-center mb-12">
           <p
             className="text-sm tracking-widest mb-3"
@@ -96,7 +99,10 @@ export default function Reviews() {
           </p>
         </div>
 
+        </ScrollReveal>
+
         {/* Review Cards */}
+        <ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {reviews.map((review, index) => (
             <div
@@ -137,6 +143,8 @@ export default function Reviews() {
             </div>
           ))}
         </div>
+
+        </ScrollReveal>
 
         {/* Community Badges */}
         <div className="text-center mb-12">

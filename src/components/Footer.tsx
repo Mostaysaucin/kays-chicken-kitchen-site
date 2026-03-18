@@ -1,8 +1,15 @@
-import { ORDER_CAUSEWAY, ORDER_BEARSS, PHONE, PHONE_HREF, EMAIL, INSTAGRAM_URL, FACEBOOK_URL, TIKTOK_URL } from "@/lib/constants";
+"use client";
+
+import { LOCATIONS, PHONE, PHONE_HREF, EMAIL, INSTAGRAM_URL, FACEBOOK_URL, TIKTOK_URL } from "@/lib/constants";
+import { useLocation } from "@/lib/location-context";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Footer() {
+  const { selectedLocation, hydrated } = useLocation();
+
   return (
     <footer className="site-footer section-padding" style={{ background: "var(--background)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <ScrollReveal>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           {/* Brand Column */}
@@ -76,7 +83,16 @@ export default function Footer() {
             </h4>
             <div className="space-y-4">
               <div>
-                <p className="text-sm font-bold mb-1" style={{ color: "var(--text-primary)" }}>Causeway Blvd (Drive-Thru)</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="text-sm font-bold" style={{ color: hydrated && selectedLocation === "causeway" ? "var(--secondary)" : "var(--text-primary)" }}>
+                    Causeway Blvd (Satellite)
+                  </p>
+                  {hydrated && selectedLocation === "causeway" && (
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-full" style={{ background: "var(--secondary)", color: "var(--text-on-secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                      Selected
+                    </span>
+                  )}
+                </div>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=10323+Causeway+Blvd+Tampa+FL+33619"
                   target="_blank"
@@ -87,9 +103,19 @@ export default function Footer() {
                   10323 Causeway Blvd, Tampa, FL 33619
                 </a>
                 <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>Tue-Sat 11am-8:30pm</p>
+                <p className="text-xs mt-0.5" style={{ color: "var(--primary)" }}>Card Only</p>
               </div>
               <div>
-                <p className="text-sm font-bold mb-1" style={{ color: "var(--text-primary)" }}>Bearss Ave (Full-Service)</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="text-sm font-bold" style={{ color: hydrated && selectedLocation === "bearss" ? "var(--secondary)" : "var(--text-primary)" }}>
+                    Bearss Ave (Full-Service)
+                  </p>
+                  {hydrated && selectedLocation === "bearss" && (
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-full" style={{ background: "var(--secondary)", color: "var(--text-on-secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                      Selected
+                    </span>
+                  )}
+                </div>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=2808+E+Bearss+Ave+Tampa+FL+33613"
                   target="_blank"
@@ -123,11 +149,11 @@ export default function Footer() {
             </h4>
             <div className="space-y-3">
               <a
-                href={ORDER_CAUSEWAY}
+                href={LOCATIONS.causeway.orderUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm transition-colors"
-                style={{ color: "var(--text-primary)" }}
+                style={{ color: hydrated && selectedLocation === "causeway" ? "var(--secondary)" : "var(--text-primary)" }}
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--secondary)" }} />
                 Causeway Blvd
@@ -136,11 +162,11 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href={ORDER_BEARSS}
+                href={LOCATIONS.bearss.orderUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm transition-colors"
-                style={{ color: "var(--text-primary)" }}
+                style={{ color: hydrated && selectedLocation === "bearss" ? "var(--secondary)" : "var(--text-primary)" }}
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--primary)" }} />
                 Bearss Ave
@@ -177,6 +203,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      </ScrollReveal>
     </footer>
   );
 }

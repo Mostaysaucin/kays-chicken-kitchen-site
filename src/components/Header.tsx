@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { ORDER_CAUSEWAY, ORDER_BEARSS } from "@/lib/constants";
+import { LOCATIONS } from "@/lib/constants";
+import { useLocation } from "@/lib/location-context";
+import LocationSwitcher from "./LocationSwitcher";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,6 +12,9 @@ export default function Header() {
   const orderRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const { selectedLocation, hydrated } = useLocation();
+
+  const loc = selectedLocation ? LOCATIONS[selectedLocation] : null;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -114,57 +119,73 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Order Button with Dropdown */}
-        <div className="hidden md:block relative" ref={orderRef}>
-          <button
-            onClick={() => setOrderOpen(!orderOpen)}
-            className="btn-primary !py-2.5 !px-6 !text-sm flex items-center gap-2"
-          >
-            Order Online
-            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-          {orderOpen && (
-            <div
-              className="absolute right-0 top-full mt-2 w-56 rounded-lg overflow-hidden shadow-2xl"
-              style={{ background: "var(--accent)", border: "1px solid rgba(255,255,255,0.1)" }}
-            >
+        {/* Desktop: Location Switcher + Order Button */}
+        <div className="hidden md:flex items-center gap-3">
+          <LocationSwitcher />
+          <div className="relative" ref={orderRef}>
+            {hydrated && loc ? (
               <a
-                href={ORDER_CAUSEWAY}
+                href={loc.orderUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  color: "var(--text-primary)",
-                  borderBottom: "1px solid rgba(255,255,255,0.05)",
-                }}
-                onClick={() => setOrderOpen(false)}
+                className="btn-primary !py-2.5 !px-6 !text-sm"
               >
-                <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
-                Causeway Blvd
+                Order Online
               </a>
-              <a
-                href={ORDER_BEARSS}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  color: "var(--text-primary)",
-                }}
-                onClick={() => setOrderOpen(false)}
-              >
-                <span className="w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
-                Bearss Ave
-              </a>
-            </div>
-          )}
+            ) : (
+              <>
+                <button
+                  onClick={() => setOrderOpen(!orderOpen)}
+                  className="btn-primary !py-2.5 !px-6 !text-sm flex items-center gap-2"
+                >
+                  Order Online
+                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                {orderOpen && (
+                  <div
+                    className="absolute right-0 top-full mt-2 w-56 rounded-lg overflow-hidden shadow-2xl"
+                    style={{ background: "var(--accent)", border: "1px solid rgba(255,255,255,0.1)" }}
+                  >
+                    <a
+                      href={LOCATIONS.causeway.orderUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
+                      style={{
+                        fontFamily: "var(--font-heading)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                        color: "var(--text-primary)",
+                        borderBottom: "1px solid rgba(255,255,255,0.05)",
+                      }}
+                      onClick={() => setOrderOpen(false)}
+                    >
+                      <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
+                      Causeway Blvd
+                    </a>
+                    <a
+                      href={LOCATIONS.bearss.orderUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
+                      style={{
+                        fontFamily: "var(--font-heading)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                        color: "var(--text-primary)",
+                      }}
+                      onClick={() => setOrderOpen(false)}
+                    >
+                      <span className="w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
+                      Bearss Ave
+                    </a>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
         </div>
 
         {/* Mobile: hamburger only */}
@@ -206,28 +227,44 @@ export default function Header() {
             <p className="text-xs mt-4 mb-2 uppercase tracking-widest" style={{ fontFamily: "var(--font-heading)", color: "var(--text-secondary)" }}>
               Order Online
             </p>
-            <a
-              href={ORDER_CAUSEWAY}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 text-base tracking-wider transition-colors border-b flex items-center gap-3"
-              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)", borderColor: "rgba(255,255,255,0.05)" }}
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
-              Causeway Blvd
-            </a>
-            <a
-              href={ORDER_BEARSS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 text-base tracking-wider transition-colors flex items-center gap-3"
-              style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)" }}
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className="w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
-              Bearss Ave
-            </a>
+            {hydrated && loc ? (
+              <a
+                href={loc.orderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 text-base tracking-wider transition-colors flex items-center gap-3"
+                style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
+                Order &mdash; {loc.name}
+              </a>
+            ) : (
+              <>
+                <a
+                  href={LOCATIONS.causeway.orderUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 text-base tracking-wider transition-colors border-b flex items-center gap-3"
+                  style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)", borderColor: "rgba(255,255,255,0.05)" }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span className="w-2 h-2 rounded-full" style={{ background: "var(--secondary)" }} />
+                  Causeway Blvd
+                </a>
+                <a
+                  href={LOCATIONS.bearss.orderUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 text-base tracking-wider transition-colors flex items-center gap-3"
+                  style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--secondary)" }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span className="w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
+                  Bearss Ave
+                </a>
+              </>
+            )}
           </nav>
         </div>
       )}

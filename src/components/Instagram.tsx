@@ -1,3 +1,5 @@
+import ScrollReveal from "./ScrollReveal";
+
 export default function Instagram() {
   /* REAL photos from Kay's website */
   const gridItems = [
@@ -15,6 +17,7 @@ export default function Instagram() {
       className="section-padding"
       style={{ background: "var(--background-alt)" }}
     >
+      <ScrollReveal>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
@@ -129,6 +132,7 @@ export default function Instagram() {
           </div>
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }

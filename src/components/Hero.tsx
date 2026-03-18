@@ -1,6 +1,14 @@
-import { ORDER_CAUSEWAY, ORDER_BEARSS, HERO_BG_IMAGE } from "@/lib/constants";
+"use client";
+
+import { LOCATIONS, HERO_BG_IMAGE } from "@/lib/constants";
+import { useLocation } from "@/lib/location-context";
 
 export default function Hero() {
+  const { selectedLocation, hydrated } = useLocation();
+  const loc = selectedLocation ? LOCATIONS[selectedLocation] : null;
+  const otherId = selectedLocation === "causeway" ? "bearss" as const : "causeway" as const;
+  const other = selectedLocation ? LOCATIONS[otherId] : null;
+
   return (
     <section
       id="hero"
@@ -69,7 +77,7 @@ export default function Hero() {
           Tampa&apos;s ONLY Chicago Style Fried Chicken &amp; Fish with the Authentic Chicago Style Mild Sauce
         </p>
 
-        {/* CTAs — two location buttons */}
+        {/* CTAs — location-aware */}
         <div className="animate-fade-in-up animate-delay-300">
           <p
             className="text-xs tracking-widest mb-4"
@@ -77,17 +85,41 @@ export default function Hero() {
           >
             Order Online
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <a href={ORDER_CAUSEWAY} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Order &mdash; Causeway Blvd
-            </a>
-            <a href={ORDER_BEARSS} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Order &mdash; Bearss Ave
-            </a>
-          </div>
-          <a href="#menu" className="btn-red-outline !py-3 !px-8 !text-sm">
-            View Our Menu
-          </a>
+          {hydrated && loc && other ? (
+            <div className="flex flex-col items-center gap-3">
+              <a href={loc.orderUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                Order &mdash; {loc.name}
+              </a>
+              <a
+                href={other.orderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm transition-colors"
+                style={{ color: "var(--text-secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--secondary)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+              >
+                Or order from {other.name} &rarr;
+              </a>
+              <a href="#menu" className="btn-red-outline !py-3 !px-8 !text-sm mt-1">
+                View Our Menu
+              </a>
+            </div>
+          ) : (
+            <div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+                <a href={LOCATIONS.causeway.orderUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  Order &mdash; Causeway Blvd
+                </a>
+                <a href={LOCATIONS.bearss.orderUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  Order &mdash; Bearss Ave
+                </a>
+              </div>
+              <a href="#menu" className="btn-red-outline !py-3 !px-8 !text-sm">
+                View Our Menu
+              </a>
+            </div>
+          )}
         </div>
       </div>
 

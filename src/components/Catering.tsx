@@ -1,4 +1,5 @@
 import { EMAIL, PHONE, PHONE_HREF } from "@/lib/constants";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Catering() {
   const features = [
@@ -50,6 +51,7 @@ export default function Catering() {
 
   return (
     <section id="catering" className="section-padding" style={{ background: "var(--background)" }}>
+      <ScrollReveal>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -125,6 +127,7 @@ export default function Catering() {
           </div>
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }
