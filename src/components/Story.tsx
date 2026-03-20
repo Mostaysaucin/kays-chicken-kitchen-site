@@ -46,26 +46,27 @@ export default function Story() {
             </h2>
             <div className="space-y-5" style={{ color: "var(--text-primary-on-light)", fontSize: "16px", lineHeight: 1.8 }}>
               <p>
-                Kay&apos;s Kitchen officially began in 2017 as a small 12-foot food truck. Within
-                five months, Ms. Kay had outgrown it and expanded to a full-size truck. Ten months
-                later, she moved into her first brick and mortar &mdash; a small pickup window. That
-                location lasted about a year before she outgrew it too, upgrading to a 2,200 sq. ft.
-                restaurant where she served the Tampa Bay community for three years.
+                It all started in 2017 with a 12-foot food truck and a recipe Ms. Kay brought
+                straight from Chicago&apos;s South Side. Nobody in Tampa was doing real Chicago-style
+                fried chicken. Nobody had the mild sauce. So she set out to change that, one plate
+                at a time. Within five months she&apos;d outgrown that first truck, and within two
+                years she&apos;d gone from a pickup window to a 2,200 sq. ft. restaurant serving the
+                Tampa Bay community.
               </p>
               <p>
-                Then COVID hit. Ms. Kay closed that location in late 2021 and did what she&apos;s
-                always done &mdash; kept moving forward. She built a new food truck, reopened in early
-                2022, and by March 2023 landed at her current Causeway Blvd location inside an Exxon
-                Victory Lane station. A year later, she opened a second location &mdash; a food truck
-                in Ruskin, Florida. When Hurricane Helene struck in October 2024, two feet of
-                floodwater filled that truck. Ms. Kay lost nearly $20,000 in revenue. She came back anyway.
+                When COVID forced her to close that location in late 2021, Ms. Kay did what
+                she&apos;s always done: she kept going. She built a new food truck, reopened in early
+                2022, and by March 2023 had found a home at her Causeway Blvd location. A year after
+                that, she launched a second spot in Ruskin, Florida. Then Hurricane Helene put two
+                feet of floodwater in that truck and cost her nearly $20,000. She came back anyway.
               </p>
               <p>
-                That resilience led to the Bearss Ave location &mdash; a full-service restaurant
-                built to serve the loyal customers driving from Wesley Chapel, New Tampa, and across
-                the Bay. Today, Kay&apos;s Kitchen is a pillar in every community it serves, with
-                outstanding reviews and a growing fanbase. Ms. Kay is already working with her
-                financial planner on the next chapter: franchising.
+                That same drive led to the Bearss Ave location, a full-service restaurant built
+                for the loyal customers driving in from Wesley Chapel, New Tampa, and across the Bay.
+                Today, Kay&apos;s Kitchen is a pillar in every community it serves, with outstanding
+                reviews and a fanbase that keeps growing. Ms. Kay is already planning the next
+                chapter with her financial team: bringing Kay&apos;s Kitchen to even more neighborhoods
+                through franchising.
               </p>
             </div>
 
