@@ -1,14 +1,16 @@
 import ScrollReveal from "./ScrollReveal";
 
 export default function Instagram() {
-  /* REAL photos from Kay's website */
-  const gridItems = [
+  const videos = [
+    { src: "/videos/reel-1-web.mp4", label: "Kay's Kitchen Reel" },
+    { src: "/videos/reel-2-web.mp4", label: "Kay's Kitchen Reel" },
+    { src: "/videos/reel-3-web.mp4", label: "Kay's Kitchen Reel" },
+  ];
+
+  const images = [
     { img: "https://static.wixstatic.com/media/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg", label: "Wings" },
     { img: "https://static.wixstatic.com/media/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg", label: "Grouper" },
     { img: "https://static.wixstatic.com/media/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png/v1/fill/w_600,h_600,al_c,q_85/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png", label: "Shrimp" },
-    { img: "https://static.wixstatic.com/media/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg", label: "Chicken Sandwich" },
-    { img: "https://static.wixstatic.com/media/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg", label: "Pizza Puffs" },
-    { img: "https://static.wixstatic.com/media/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg", label: "Chicken Strips" },
   ];
 
   return (
@@ -43,9 +45,60 @@ export default function Instagram() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-10">
-          {gridItems.map((item, index) => (
+        {/* Videos Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-4">
+          {videos.map((video, index) => (
+            <a
+              key={index}
+              href="https://instagram.com/kayschickenkitchen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="aspect-[9/16] sm:aspect-square rounded-lg overflow-hidden relative group block"
+              aria-label={`Instagram reel: ${video.label}`}
+            >
+              <video
+                src={video.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mb-2"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <span
+                  className="text-xs tracking-widest"
+                  style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "var(--text-primary)" }}
+                >
+                  Watch on Instagram
+                </span>
+              </div>
+              {/* Play icon badge */}
+              <div className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "rgba(0,0,0,0.5)" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Images Row */}
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-10">
+          {images.map((item, index) => (
             <a
               key={index}
               href="https://instagram.com/kayschickenkitchen"
