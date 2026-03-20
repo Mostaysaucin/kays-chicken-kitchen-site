@@ -82,6 +82,7 @@ const causewayMenu: MenuCategory[] = [
         price: "$15.99",
         comboPrice: "$18.99",
         comboPremiumNote: "Premium sides +$5.99",
+        img: "/images/food/wings-fries-seasoned.jpg",
       },
       {
         // Combo base is lower than wings-only at 15pc — show both clearly
@@ -156,6 +157,7 @@ const causewayMenu: MenuCategory[] = [
           { size: "2 Piece", price: "$17.99", comboPrice: "$20.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
+        img: "/images/food/fish-fillets.jpg",
       },
       {
         name: "Jumbo Shrimp",
@@ -184,6 +186,7 @@ const causewayMenu: MenuCategory[] = [
         name: "Fish & 8 Shrimp Special",
         price: "$18.99",
         desc: "Includes 3 hush puppies",
+        img: "/images/food/fish-fries-hushpuppies.jpg",
       },
       {
         name: "Fish & Hush Puppies Special",
@@ -253,7 +256,7 @@ const causewayMenu: MenuCategory[] = [
     id: "whole-wing-bucket",
     label: "Whole Wing Bucket",
     items: [
-      { name: "12 Whole Wings", price: "$22.99" },
+      { name: "12 Whole Wings", price: "$22.99", img: "/images/food/wing-bucket.jpg" },
       { name: "18 Whole Wings", price: "$34.99" },
       { name: "24 Whole Wings", price: "$42.99" },
       { name: "50 Whole Wings", price: "$84.99" },
@@ -354,6 +357,7 @@ const bearssMenu: MenuCategory[] = [
         price: "$15.99",
         comboPrice: "$18.99",
         comboPremiumNote: "Premium sides +$5.99",
+        img: "/images/food/wings-fries-seasoned.jpg",
       },
       {
         name: "15 Piece Wings",
@@ -420,6 +424,7 @@ const bearssMenu: MenuCategory[] = [
         name: "2 Whole Wings & 5 Shrimp",
         price: "$8.99",
         desc: "Includes side",
+        img: "/images/food/wings-shrimp-basket.jpg",
       },
       {
         name: "2 Whole Wings & Basa",
@@ -616,7 +621,7 @@ const bearssMenu: MenuCategory[] = [
     id: "whole-wing-bucket",
     label: "Whole Wing Bucket",
     items: [
-      { name: "12 Whole Wings", price: "$22.99" },
+      { name: "12 Whole Wings", price: "$22.99", img: "/images/food/wing-bucket.jpg" },
       { name: "18 Whole Wings", price: "$34.99" },
       { name: "24 Whole Wings", price: "$42.99" },
       { name: "50 Whole Wings", price: "$84.99" },
@@ -635,6 +640,7 @@ const bearssMenu: MenuCategory[] = [
           { size: "Regular", price: "$6.25" },
           { size: "Large", price: "$8.33" },
         ],
+        img: "/images/food/fruit-slushy.jpg",
       },
       {
         name: "SLUSHY: Peach Pineapple",
@@ -731,7 +737,7 @@ const bearssMenu: MenuCategory[] = [
     id: "desserts",
     label: "Desserts",
     items: [
-      { name: "Original Pound Cake", price: "$6.99", note: "Sold Out" },
+      { name: "Original Pound Cake", price: "$6.99", note: "Sold Out", img: "/images/food/pound-cake.jpg" },
     ],
   },
   {

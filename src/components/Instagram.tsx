@@ -8,9 +8,9 @@ export default function Instagram() {
   ];
 
   const images = [
-    { img: "https://static.wixstatic.com/media/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg", label: "Wings" },
-    { img: "https://static.wixstatic.com/media/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg", label: "Grouper" },
-    { img: "https://static.wixstatic.com/media/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png/v1/fill/w_600,h_600,al_c,q_85/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png", label: "Shrimp" },
+    { img: "/images/food/full-spread.jpg", label: "Wings, Mac & Cheese, Greens" },
+    { img: "/images/food/wings-fries-sauce-pour.jpg", label: "Wings & Mild Sauce" },
+    { img: "/images/food/wing-sauce-kitchen.jpg", label: "Fresh from the Kitchen" },
   ];
 
   return (
