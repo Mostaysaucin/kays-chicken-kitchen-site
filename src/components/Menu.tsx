@@ -8,11 +8,14 @@ import type { MenuCategory, MenuItem } from "@/lib/menu-data";
 import ScrollReveal from "./ScrollReveal";
 
 // ---------------------------------------------------------------------------
-// MenuItemCard — handles single-price, multi-size, and sold-out items
+// MenuItemCard — handles single-price, multi-size, combo, and sold-out items
 // ---------------------------------------------------------------------------
 function MenuItemCard({ item }: { item: MenuItem }) {
   const hasSizes = item.sizes && item.sizes.length > 0;
-  const lowestPrice = hasSizes ? item.sizes![0].price : null;
+  const isSoldOut = item.note === "Sold Out";
+
+  // Determine whether any size has a comboPrice to show the combo column
+  const sizesHaveCombo = hasSizes && item.sizes!.some((s) => s.comboPrice);
 
   return (
     <div
@@ -20,7 +23,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
       style={{
         background: "var(--surface)",
         border: "1px solid rgba(255,255,255,0.08)",
-        opacity: item.note === "Sold Out" ? 0.6 : 1,
+        opacity: isSoldOut ? 0.6 : 1,
       }}
     >
       {/* Food Image */}
@@ -54,7 +57,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
           </h3>
 
           <div className="shrink-0 flex flex-col items-end gap-1">
-            {item.note === "Sold Out" ? (
+            {isSoldOut ? (
               <span
                 className="text-xs font-bold px-2 py-0.5 rounded-full"
                 style={{
@@ -71,7 +74,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
                 className="text-base font-bold"
                 style={{ color: "var(--secondary)", fontFamily: "var(--font-heading)" }}
               >
-                from {lowestPrice}
+                from {item.sizes![0].price}
               </span>
             ) : item.price ? (
               <span
@@ -81,6 +84,21 @@ function MenuItemCard({ item }: { item: MenuItem }) {
                 {item.price}
               </span>
             ) : null}
+
+            {/* Combo price badge for single-price items */}
+            {!isSoldOut && !hasSizes && item.comboPrice && (
+              <span
+                className="text-xs font-semibold px-2 py-0.5 rounded"
+                style={{
+                  background: "rgba(221,40,3,0.12)",
+                  color: "var(--secondary)",
+                  border: "1px solid rgba(221,40,3,0.25)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                with Fries: {item.comboPrice}
+              </span>
+            )}
           </div>
         </div>
 
@@ -91,25 +109,46 @@ function MenuItemCard({ item }: { item: MenuItem }) {
           </p>
         )}
 
-        {/* Size list */}
-        {hasSizes && item.note !== "Sold Out" && (
-          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+        {/* Size list — with optional combo column */}
+        {hasSizes && !isSoldOut && (
+          <ul className="mt-2 space-y-1">
             {item.sizes!.map((s) => (
               <li
                 key={s.size}
-                className="text-xs"
-                style={{ color: "var(--text-secondary)" }}
+                className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 text-xs"
               >
                 <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>
                   {s.size}
                 </span>
-                {" — "}
                 <span style={{ color: "var(--secondary)", fontWeight: 600 }}>
                   {s.price}
                 </span>
+                {s.comboPrice && (
+                  <span
+                    className="px-1.5 py-0.5 rounded"
+                    style={{
+                      background: "rgba(221,40,3,0.10)",
+                      color: "var(--secondary)",
+                      border: "1px solid rgba(221,40,3,0.20)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    with Fries: {s.comboPrice}
+                  </span>
+                )}
               </li>
             ))}
           </ul>
+        )}
+
+        {/* Premium sides note — shown below sizes or below combo badge */}
+        {!isSoldOut && item.comboPremiumNote && (sizesHaveCombo || item.comboPrice) && (
+          <p
+            className="text-xs mt-1.5"
+            style={{ color: "var(--text-secondary)", fontStyle: "italic" }}
+          >
+            {item.comboPremiumNote}
+          </p>
         )}
       </div>
     </div>
@@ -221,7 +260,7 @@ export default function Menu() {
 
         {/* Category Tabs */}
         <div
-          className="menu-tabs flex gap-2 overflow-x-auto pb-4 mb-8 -mx-6 px-6 flex-wrap justify-center"
+          className="menu-tabs flex gap-2 overflow-x-auto pb-4 mb-4 -mx-6 px-6 flex-wrap justify-center"
           role="tablist"
           aria-label="Menu categories"
         >
@@ -258,6 +297,15 @@ export default function Menu() {
             </button>
           ))}
         </div>
+
+        {/* Combo pricing note — shown below tabs */}
+        <p
+          className="text-xs text-center mb-8"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          Combo prices shown include fries. Substitute fries for other sides at an
+          additional charge.
+        </p>
 
         {/* Menu Items */}
         <div
