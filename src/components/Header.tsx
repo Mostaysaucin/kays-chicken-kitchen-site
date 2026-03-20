@@ -89,7 +89,7 @@ export default function Header() {
             className="text-xl sm:text-2xl md:text-3xl font-bold"
             style={{ fontFamily: "var(--font-heading)", color: "var(--secondary)", letterSpacing: "0.04em" }}
           >
-            KAY&apos;S CHICKEN KITCHEN
+            KAY&apos;S KITCHEN
           </span>
           <span
             className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] uppercase mt-0.5"
