@@ -1,5 +1,5 @@
 // Shared constants — single source of truth for all components
-export const ORDER_CAUSEWAY = "https://kayschickenkitchen.smartonlineorder.com";
+export const ORDER_CAUSEWAY = "https://online.skytab.com/983b2195f077e3e4a9f45ed968714ec2/order-settings";
 export const ORDER_BEARSS = "https://online.skytab.com/04019c96e9c8c93ddbfcc825a37f240a";
 export const PHONE = "(813) 893-0415";
 export const PHONE_HREF = "tel:8138930415";

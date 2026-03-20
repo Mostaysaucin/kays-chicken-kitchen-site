@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "@/lib/location-context";
 import { LOCATIONS } from "@/lib/constants";
 import type { LocationId } from "@/lib/constants";
@@ -8,17 +8,23 @@ import type { LocationId } from "@/lib/constants";
 export default function LocationPicker() {
   const { showPicker, setLocation, dismissPicker } = useLocation();
   const dialogRef = useRef<HTMLDivElement>(null);
+  const [showNewcomer, setShowNewcomer] = useState(false);
 
   useEffect(() => {
     if (!showPicker) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") dismissPicker();
+      if (e.key === "Escape") {
+        if (showNewcomer) {
+          setShowNewcomer(false);
+        } else {
+          dismissPicker();
+        }
+      }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [showPicker, dismissPicker]);
+  }, [showPicker, showNewcomer, dismissPicker]);
 
-  // Focus trap
   useEffect(() => {
     if (!showPicker || !dialogRef.current) return;
     const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
@@ -29,11 +35,136 @@ export default function LocationPicker() {
 
   if (!showPicker) return null;
 
-  const locationCards: { id: LocationId; icon: string; tagline: string }[] = [
-    { id: "causeway", icon: "📍", tagline: "Card only • Tue-Sat 11am-8:30pm" },
-    { id: "bearss", icon: "🏠", tagline: "Full menu • Open late nights" },
+  const locationCards: { id: LocationId; icon: string; hoursLine: string }[] = [
+    { id: "causeway", icon: "📍", hoursLine: "Tue-Sat 11am-8:30pm | Card Only" },
+    { id: "bearss", icon: "🏠", hoursLine: "Tue-Thu 11am-2am | Fri-Sat 11am-4am | Sun 12pm-2am" },
   ];
 
+  // Newcomer info screen
+  if (showNewcomer) {
+    return (
+      <div
+        className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+        style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="First time at Kay's Kitchen"
+      >
+        <div
+          ref={dialogRef}
+          className="w-full max-w-md rounded-2xl overflow-hidden animate-fade-in-up"
+          style={{ background: "var(--accent)" }}
+        >
+          <div className="p-6 sm:p-8">
+            <h2
+              className="text-2xl sm:text-3xl mb-2 text-center"
+              style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "var(--secondary)" }}
+            >
+              Welcome to Kay&apos;s Kitchen!
+            </h2>
+            <p className="text-sm mb-5 text-center" style={{ color: "var(--text-secondary)" }}>
+              A few things to know before your first visit
+            </p>
+
+            <div className="space-y-4">
+              {/* Kiosk ordering */}
+              <div
+                className="p-4 rounded-xl"
+                style={{ background: "var(--surface)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-xl shrink-0" aria-hidden="true">🖥️</span>
+                  <div>
+                    <p className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      Kiosk Ordering Only
+                    </p>
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                      We do not have a cashier. Place your order using the kiosks inside so our staff can
+                      focus on putting love into every meal. For faster service, order online before you arrive.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Seasoning */}
+              <div
+                className="p-4 rounded-xl"
+                style={{ background: "var(--surface)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-xl shrink-0" aria-hidden="true">🌶️</span>
+                  <div>
+                    <p className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      Signature Seasoning
+                    </p>
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                      Every meal comes with Kay&apos;s signature white seasoning (regular) and Chicago mild
+                      sauce on the side. Choose your level when ordering: Lite, Regular, Extra, or White Out.
+                      No ketchup served.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Payment */}
+              <div
+                className="p-4 rounded-xl"
+                style={{ background: "var(--surface)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-xl shrink-0" aria-hidden="true">💳</span>
+                  <div>
+                    <p className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      Card Only, No Cash
+                    </p>
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                      All locations are card only. No cash accepted. All sales are final,
+                      no refunds or exchanges once payment is completed.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Wait time */}
+              <div
+                className="p-4 rounded-xl"
+                style={{ background: "var(--surface)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-xl shrink-0" aria-hidden="true">⏱️</span>
+                  <div>
+                    <p className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      Fresh to Order
+                    </p>
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                      Everything is cooked fresh. Wait times are typically 15 to 25 minutes.
+                      We&apos;ll call your name when your food is ready.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowNewcomer(false)}
+              className="w-full mt-5 py-3 rounded-lg text-sm font-bold transition-colors"
+              style={{
+                fontFamily: "var(--font-heading)",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                background: "var(--secondary)",
+                color: "var(--text-on-secondary)",
+              }}
+            >
+              Got It, Choose My Location
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Main location picker
   return (
     <div
       className="fixed inset-0 z-[60] flex items-center justify-center p-4"
@@ -96,8 +227,8 @@ export default function LocationPicker() {
                           {loc.type}
                         </span>
                       </div>
-                      <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>
-                        {card.tagline}
+                      <p className="text-[11px] mt-1 leading-snug" style={{ color: "var(--text-secondary)" }}>
+                        {card.hoursLine}
                       </p>
                     </div>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2">
@@ -109,10 +240,31 @@ export default function LocationPicker() {
             })}
           </div>
 
+          {/* First time? */}
+          <button
+            onClick={() => setShowNewcomer(true)}
+            className="mt-4 text-sm transition-colors block mx-auto"
+            style={{ color: "var(--secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--secondary)")}
+          >
+            First time? Read this first
+          </button>
+
+          {/* Bookmark tip */}
+          <div
+            className="mt-4 py-2.5 px-4 rounded-lg"
+            style={{ background: "rgba(255,255,0,0.06)", border: "1px solid rgba(255,255,0,0.15)" }}
+          >
+            <p className="text-[11px]" style={{ color: "var(--secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              Bookmark this page for faster service. Online orders skip the wait.
+            </p>
+          </div>
+
           <button
             onClick={dismissPicker}
-            className="mt-4 text-sm transition-colors"
-            style={{ color: "var(--text-secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            className="mt-3 text-xs transition-colors"
+            style={{ color: "var(--text-secondary)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
           >
