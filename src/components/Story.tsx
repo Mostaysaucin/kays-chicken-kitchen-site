@@ -46,22 +46,26 @@ export default function Story() {
             </h2>
             <div className="space-y-5" style={{ color: "var(--text-primary-on-light)", fontSize: "16px", lineHeight: 1.8 }}>
               <p>
-                Kay Lee grew up in the kitchens of Chicago&apos;s South Side, where fried chicken
-                wasn&apos;t just food &mdash; it was family, it was culture, it was home. Every bite
-                carried the warmth of a grandmother&apos;s recipe and the unmistakable flavor of
-                Chicago&apos;s legendary mild sauce.
+                Kay&apos;s Kitchen officially began in 2017 as a small 12-foot food truck. Within
+                five months, Ms. Kay had outgrown it and expanded to a full-size truck. Ten months
+                later, she moved into her first brick and mortar &mdash; a small pickup window. That
+                location lasted about a year before she outgrew it too, upgrading to a 2,200 sq. ft.
+                restaurant where she served the Tampa Bay community for three years.
               </p>
               <p>
-                When Ms. Kay moved to Tampa, she discovered something was missing. Nobody was doing
-                Chicago-style fried chicken. Nobody had the mild sauce. So in 2017, she and her
-                husband Alvin launched a food trailer with one mission: bring the real Chicago flavor
-                to Tampa Bay.
+                Then COVID hit. Ms. Kay closed that location in late 2021 and did what she&apos;s
+                always done &mdash; kept moving forward. She built a new food truck, reopened in early
+                2022, and by March 2023 landed at her current Causeway Blvd location inside an Exxon
+                Victory Lane station. A year later, she opened a second location &mdash; a food truck
+                in Ruskin, Florida. When Hurricane Helene struck in October 2024, two feet of
+                floodwater filled that truck. Ms. Kay lost nearly $20,000 in revenue. She came back anyway.
               </p>
               <p>
-                What started as a trailer became a movement. Through the challenges of COVID-19, Kay
-                kept cooking, kept serving, and kept growing. Today, Kay&apos;s Chicken Kitchen has
-                two thriving Tampa locations &mdash; a satellite location on Causeway Blvd and a full-service
-                restaurant on Bearss Ave &mdash; and has been featured on FOX 13 Tampa Bay.
+                That resilience led to the Bearss Ave location &mdash; a full-service restaurant
+                built to serve the loyal customers driving from Wesley Chapel, New Tampa, and across
+                the Bay. Today, Kay&apos;s Kitchen is a pillar in every community it serves, with
+                outstanding reviews and a growing fanbase. Ms. Kay is already working with her
+                financial planner on the next chapter: franchising.
               </p>
             </div>
 
