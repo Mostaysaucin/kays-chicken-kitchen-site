@@ -115,11 +115,12 @@ export default function LocationPicker() {
                   <span className="text-xl shrink-0" aria-hidden="true">💳</span>
                   <div>
                     <p className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-heading)", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-                      Card Only, No Cash
+                      Payment Info
                     </p>
                     <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                      All locations are card only. No cash accepted. All sales are final,
-                      no refunds or exchanges once payment is completed.
+                      <strong style={{ color: "var(--text-primary)" }}>Causeway Blvd:</strong> Card only, no cash accepted at any time.<br />
+                      <strong style={{ color: "var(--text-primary)" }}>Bearss Ave:</strong> Cash accepted before 5 PM. Card only after 5 PM.<br />
+                      All sales are final. No refunds or exchanges once payment is completed.
                     </p>
                   </div>
                 </div>
