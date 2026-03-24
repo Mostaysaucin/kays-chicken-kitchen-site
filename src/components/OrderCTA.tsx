@@ -79,7 +79,7 @@ export default function OrderCTA() {
           <span className="text-xs tracking-wider" style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>
             Also on:
           </span>
-          {["DoorDash", "Uber Eats", "Postmates"].map((platform) => (
+          {["DoorDash", "Uber Eats", "Grubhub", "Postmates"].map((platform) => (
             <span
               key={platform}
               className="text-xs tracking-wider"

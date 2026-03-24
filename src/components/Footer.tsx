@@ -181,7 +181,7 @@ export default function Footer() {
                   Delivery Partners
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {["DoorDash", "Uber Eats", "Postmates"].map((platform) => (
+                  {["DoorDash", "Uber Eats", "Grubhub", "Postmates"].map((platform) => (
                     <span
                       key={platform}
                       className="text-xs px-3 py-1 rounded-full"
