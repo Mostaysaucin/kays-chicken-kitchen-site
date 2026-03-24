@@ -28,9 +28,9 @@ export default function SignatureSauce() {
           className="text-base sm:text-lg mb-6 max-w-xl mx-auto"
           style={{ color: "rgba(255,255,255,0.9)", lineHeight: 1.7 }}
         >
-          Tangy, sweet, slightly spicy &mdash; and you can&apos;t get it anywhere else in Tampa. Our
-          signature mild sauce is made from a family recipe brought straight from Chicago. Forget
-          ketchup. This is the real deal.
+          Tangy, sweet, slightly spicy &mdash; and you can&apos;t get it anywhere else in Tampa. Chicago
+          mild sauce is a staple in the urban community, and Ms. Kay brought the real thing to
+          Tampa Bay. Forget ketchup. This is the real deal.
         </p>
 
         {/* Owner quote */}

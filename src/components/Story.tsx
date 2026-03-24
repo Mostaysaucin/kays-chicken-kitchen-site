@@ -64,7 +64,7 @@ export default function Story() {
               </p>
               <p>
                 In 2024 she opened a second location with a food truck in Ruskin, Florida. When
-                Hurricane Helene struck that October, two feet of floodwater filled the truck and
+                Hurricane Helene struck that September, two feet of floodwater filled the truck and
                 cost her nearly $20,000 in lost revenue. She came back anyway. That same drive led
                 to the Bearss Ave location, a full-service restaurant built for the loyal customers
                 driving in from Wesley Chapel, New Tampa, and across the Bay. Today, Kay&apos;s

@@ -3,14 +3,14 @@ import type { LocationId } from "./constants";
 export interface MenuItemSize {
   size: string;
   price: string;
-  comboPrice?: string; // with fries price for this size
+  comboPrice?: string; // combo price (includes side) for this size
 }
 
 export interface MenuItem {
   name: string;
   price?: string;           // Simple fixed price
   sizes?: MenuItemSize[];   // Size/quantity options
-  comboPrice?: string;      // "with fries" price (base + $3.00)
+  comboPrice?: string;      // combo price including side (base + $3.00)
   comboPremiumNote?: string; // e.g. "Premium sides +$5.99"
   desc?: string;
   img?: string;
@@ -40,23 +40,23 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "4 Whole Wings & Side",
         price: "$12.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
         img: "https://static.wixstatic.com/media/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg",
       },
       {
         name: "6 Whole Wings & Side",
         price: "$14.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
       },
       {
         name: "8 Whole Wings & Side",
         price: "$18.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
       },
       {
         name: "10 Whole Wings & Side",
         price: "$23.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
         img: "https://static.wixstatic.com/media/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg",
       },
       {
@@ -90,7 +90,7 @@ const causewayMenu: MenuCategory[] = [
         price: "$29.00",
         comboPrice: "$26.99",
         comboPremiumNote: "Premium sides +$5.99",
-        desc: "Combo with fries is a better deal at $26.99",
+        desc: "Combo is a better deal at $26.99",
       },
       {
         // Combo base is lower than wings-only at 20pc — show both clearly
@@ -98,7 +98,7 @@ const causewayMenu: MenuCategory[] = [
         price: "$37.75",
         comboPrice: "$31.99",
         comboPremiumNote: "Premium sides +$5.99",
-        desc: "Combo with fries is a better deal at $31.99",
+        desc: "Combo is a better deal at $31.99",
       },
       {
         name: "25 Piece Wings",
@@ -247,9 +247,9 @@ const causewayMenu: MenuCategory[] = [
     id: "kids-meal",
     label: "Kids Meal",
     items: [
-      { name: "2 Chicken Strips W/ Side", price: "$7.99", desc: "Includes side" },
-      { name: "2 Wings Traditional W/ Side", price: "$7.99", desc: "Includes side" },
-      { name: "4 Pcs Catfish Nuggets W/ Side", price: "$7.99", desc: "Includes side" },
+      { name: "2 Chicken Strips W/ Fries", price: "$7.99", desc: "Ages 5 & under only. Includes fries" },
+      { name: "2 Wings Traditional W/ Fries", price: "$7.99", desc: "Ages 5 & under only. Includes fries" },
+      { name: "4 Pcs Catfish Nuggets W/ Fries", price: "$7.99", desc: "Ages 5 & under only. Includes fries" },
     ],
   },
   {
@@ -315,23 +315,23 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "4 Whole Wings & Side",
         price: "$12.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
         img: "https://static.wixstatic.com/media/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg",
       },
       {
         name: "6 Whole Wings & Side",
         price: "$14.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
       },
       {
         name: "8 Whole Wings & Side",
         price: "$18.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
       },
       {
         name: "10 Whole Wings & Side",
         price: "$23.99",
-        desc: "Includes fries. Other sides +$2.00",
+        desc: "Includes side. Premium sides +$2.00",
         img: "https://static.wixstatic.com/media/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg",
       },
       {
@@ -612,9 +612,9 @@ const bearssMenu: MenuCategory[] = [
     id: "kids-meal",
     label: "Kids Meal",
     items: [
-      { name: "2 Wings Traditional W/ Side", price: "$7.99", desc: "Includes side" },
-      { name: "2 Chicken Strips W/ Side", price: "$7.99", desc: "Includes side" },
-      { name: "4 Pcs Catfish Nuggets W/ Side", price: "$7.99", desc: "Includes side" },
+      { name: "2 Wings Traditional W/ Fries", price: "$7.99", desc: "Ages 5 & under only. Includes fries" },
+      { name: "2 Chicken Strips W/ Fries", price: "$7.99", desc: "Ages 5 & under only. Includes fries" },
+      { name: "4 Pcs Catfish Nuggets W/ Fries", price: "$7.99", desc: "Ages 5 & under only. Includes fries" },
     ],
   },
   {

@@ -96,7 +96,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
                   whiteSpace: "nowrap",
                 }}
               >
-                with Fries: {item.comboPrice}
+                Combo: {item.comboPrice}
               </span>
             )}
           </div>
@@ -133,7 +133,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
                       fontWeight: 600,
                     }}
                   >
-                    with Fries: {s.comboPrice}
+                    Combo: {s.comboPrice}
                   </span>
                 )}
               </li>
@@ -303,8 +303,8 @@ export default function Menu() {
           className="text-xs text-center mb-8"
           style={{ color: "var(--text-secondary)" }}
         >
-          Combo prices shown include fries. Substitute fries for other sides at an
-          additional charge.
+          Combos include a side. Fries are the default. Substitute for a premium side
+          at an additional charge.
         </p>
 
         {/* Menu Items */}
