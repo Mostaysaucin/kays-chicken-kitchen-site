@@ -459,7 +459,6 @@ const bearssMenu: MenuCategory[] = [
           { size: "6 Piece", price: "$12.99", comboPrice: "$15.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg",
       },
     ],
   },
