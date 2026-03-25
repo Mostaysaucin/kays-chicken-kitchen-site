@@ -45,7 +45,7 @@ export default function LocationPicker() {
     return (
       <div
         className="fixed inset-0 z-[60] flex items-center justify-center p-4 picker-backdrop"
-        style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
+        style={{ background: "rgba(0,0,0,0.82)" }}
         role="dialog"
         aria-modal="true"
         aria-label="First time at Kay's Kitchen"
@@ -169,7 +169,7 @@ export default function LocationPicker() {
   return (
     <div
       className="fixed inset-0 z-[60] flex items-center justify-center p-4 picker-backdrop"
-      style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
+      style={{ background: "rgba(0,0,0,0.82)" }}
       role="dialog"
       aria-modal="true"
       aria-label="Choose your location"

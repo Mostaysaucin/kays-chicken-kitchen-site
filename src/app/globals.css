@@ -125,8 +125,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Location picker smooth entrance */
 @keyframes backdropFadeIn {
-  0% { opacity: 0; backdrop-filter: blur(0); }
-  100% { opacity: 1; backdrop-filter: blur(4px); }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes modalSlideIn {
@@ -151,7 +151,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .picker-backdrop {
   animation: backdropFadeIn 0.5s ease-out forwards;
-  backdrop-filter: blur(0);
 }
 
 .picker-modal {
