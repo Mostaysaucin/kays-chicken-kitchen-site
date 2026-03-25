@@ -46,7 +46,7 @@ export default function Story() {
             </h2>
             <div className="space-y-5" style={{ color: "var(--text-primary-on-light)", fontSize: "16px", lineHeight: 1.8 }}>
               <p>
-                Before Kay&apos;s Kitchen, Ms. Kay worked in insurance coordination at a prestigious
+                Before Kay&apos;s Kitchen, Ms. Kay worked as an insurance coordinator at a prestigious
                 corporate company. She walked away from that career on pure faith to start something
                 of her own, with zero food service experience and a recipe she brought straight from
                 Chicago&apos;s South Side. In 2017, she launched a small red food trailer. Within
