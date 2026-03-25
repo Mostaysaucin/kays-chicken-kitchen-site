@@ -197,19 +197,7 @@ export default function LocationPicker() {
                 <button
                   key={card.id}
                   onClick={() => setLocation(card.id)}
-                  className="w-full text-left p-4 rounded-xl transition-all duration-200"
-                  style={{
-                    background: "var(--surface)",
-                    border: "2px solid rgba(255,255,255,0.08)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--primary)";
-                    e.currentTarget.style.background = "rgba(221,40,3,0.08)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.background = "var(--surface)";
-                  }}
+                  className="location-card-btn w-full text-left p-4 rounded-xl"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-2xl" aria-hidden="true">{card.icon}</span>
@@ -244,10 +232,8 @@ export default function LocationPicker() {
           {/* First time? */}
           <button
             onClick={() => setShowNewcomer(true)}
-            className="mt-4 text-sm transition-colors block mx-auto"
-            style={{ color: "var(--secondary)", fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.08em" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--secondary)")}
+            className="picker-link-btn mt-4 text-sm block mx-auto"
+            style={{ fontFamily: "var(--font-heading)", textTransform: "uppercase", letterSpacing: "0.08em" }}
           >
             First time? Read this first
           </button>
@@ -264,10 +250,7 @@ export default function LocationPicker() {
 
           <button
             onClick={dismissPicker}
-            className="mt-3 text-xs transition-colors"
-            style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+            className="picker-dismiss-btn mt-3 text-xs"
           >
             I&apos;ll decide later
           </button>
