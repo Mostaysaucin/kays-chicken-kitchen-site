@@ -62,6 +62,7 @@ export default function Instagram() {
                 loop
                 muted
                 playsInline
+                preload="none"
                 className="w-full h-full object-cover"
               />
               {/* Hover overlay */}

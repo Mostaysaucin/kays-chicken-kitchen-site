@@ -116,7 +116,7 @@ export default function Story() {
               }}
             >
               <img
-                src="https://static.wixstatic.com/media/8b06b4_0adbf0d8a7204259a87d3dbbb2125068~mv2.jpg/v1/fill/w_800,h_800,al_c,q_80/8b06b4_0adbf0d8a7204259a87d3dbbb2125068~mv2.jpg"
+                src="/images/food/story-plate.jpg"
                 alt="Kay's Chicken Kitchen wings, shrimp, and fries with mild sauce"
                 width={800}
                 height={800}

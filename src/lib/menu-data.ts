@@ -41,7 +41,7 @@ const causewayMenu: MenuCategory[] = [
         name: "4 Whole Wings & Side",
         price: "$12.99",
         desc: "Includes side. Premium sides +$2.00",
-        img: "https://static.wixstatic.com/media/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg",
+        img: "/images/food/wings-whole-10pc.jpg",
       },
       {
         name: "6 Whole Wings & Side",
@@ -57,7 +57,7 @@ const causewayMenu: MenuCategory[] = [
         name: "10 Whole Wings & Side",
         price: "$23.99",
         desc: "Includes side. Premium sides +$2.00",
-        img: "https://static.wixstatic.com/media/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg",
+        img: "/images/food/wings-whole-20pc.jpg",
       },
       {
         name: "20 Whole Wings & Side",
@@ -75,7 +75,7 @@ const causewayMenu: MenuCategory[] = [
         price: "$10.99",
         comboPrice: "$13.99",
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg",
+        img: "/images/food/wings-jumbo.jpg",
       },
       {
         name: "10 Piece Wings",
@@ -125,7 +125,6 @@ const causewayMenu: MenuCategory[] = [
           { size: "6 Piece", price: "$12.99", comboPrice: "$15.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_e18d5d387e154c65838ca810e5976831~mv2.jpg",
       },
     ],
   },
@@ -140,7 +139,7 @@ const causewayMenu: MenuCategory[] = [
           { size: "2 Piece", price: "$13.99", comboPrice: "$16.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg",
+        img: "/images/food/grouper.jpg",
       },
       {
         name: "Catfish Nuggets",
@@ -166,7 +165,7 @@ const causewayMenu: MenuCategory[] = [
           { size: "11 Pieces", price: "$18.99", comboPrice: "$21.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png/v1/fill/w_400,h_400,al_c,q_85/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png",
+        img: "/images/food/shrimp.jpg",
       },
       {
         name: "Shrimp",
@@ -192,7 +191,7 @@ const causewayMenu: MenuCategory[] = [
         name: "Fish & Hush Puppies Special",
         price: "$13.99",
         desc: "Includes side & 3 hush puppies",
-        img: "https://static.wixstatic.com/media/8b06b4_ea2b56c6b3834e339f835923cb57f297~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_ea2b56c6b3834e339f835923cb57f297~mv2.jpg",
+        img: "/images/food/fish-hushpuppies.jpg",
       },
     ],
   },
@@ -207,7 +206,7 @@ const causewayMenu: MenuCategory[] = [
           { size: "1 LB", price: "$10.99", comboPrice: "$13.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_5c2932173e7c4b6eaf71488bd635ba97~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_5c2932173e7c4b6eaf71488bd635ba97~mv2.jpg",
+        img: "/images/food/gizzards.jpg",
       },
       {
         name: "Liver",
@@ -228,14 +227,14 @@ const causewayMenu: MenuCategory[] = [
         price: "$7.99",
         comboPrice: "$10.99",
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg",
+        img: "/images/food/chicken-sandwich.jpg",
       },
       {
         name: "Fish Sandwich",
         price: "$8.99",
         comboPrice: "$11.99",
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/2041f5_80a604da678040f39d686b21b4094789~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_80a604da678040f39d686b21b4094789~mv2.jpg",
+        img: "/images/food/fish-sandwich.jpg",
       },
       {
         name: "Grouper Sandwich",
@@ -273,7 +272,7 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "Fries",
         price: "$4.99",
-        img: "https://static.wixstatic.com/media/8b06b4_c52f41438b8148ab99857deadca79ae8~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_c52f41438b8148ab99857deadca79ae8~mv2.jpg",
+        img: "/images/food/fries.jpg",
       },
       { name: "Hush Puppies", price: "$7.25" },
       { name: "Jalapeno", price: "$0.60" },
@@ -286,12 +285,12 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "Onion Rings",
         price: "$7.50",
-        img: "https://static.wixstatic.com/media/2041f5_d21a8b47dc164948b78c57f5c81f13c7~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_d21a8b47dc164948b78c57f5c81f13c7~mv2.jpg",
+        img: "/images/food/onion-rings.jpg",
       },
       {
         name: "Pizza Puff",
         price: "$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg",
+        img: "/images/food/pizza-puff.jpg",
       },
       { name: "Whole Jalepeno Pepper", price: "$0.50" },
     ],
@@ -316,7 +315,7 @@ const bearssMenu: MenuCategory[] = [
         name: "4 Whole Wings & Side",
         price: "$12.99",
         desc: "Includes side. Premium sides +$2.00",
-        img: "https://static.wixstatic.com/media/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_c7ff9d7dbb014e43959de5044e3ed183~mv2.jpg",
+        img: "/images/food/wings-whole-10pc.jpg",
       },
       {
         name: "6 Whole Wings & Side",
@@ -332,7 +331,7 @@ const bearssMenu: MenuCategory[] = [
         name: "10 Whole Wings & Side",
         price: "$23.99",
         desc: "Includes side. Premium sides +$2.00",
-        img: "https://static.wixstatic.com/media/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_459fda4742114148878ae59dba06985c~mv2.jpg",
+        img: "/images/food/wings-whole-20pc.jpg",
       },
       {
         name: "20 Whole Wings & Side",
@@ -350,7 +349,7 @@ const bearssMenu: MenuCategory[] = [
         price: "$10.99",
         comboPrice: "$13.99",
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_4a8f718f467a4fd6bbac84ac9abca0e4~mv2.jpg",
+        img: "/images/food/wings-jumbo.jpg",
       },
       {
         name: "10 Piece Wings",
@@ -473,7 +472,7 @@ const bearssMenu: MenuCategory[] = [
           { size: "1 LB", price: "$10.99", comboPrice: "$13.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_5c2932173e7c4b6eaf71488bd635ba97~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_5c2932173e7c4b6eaf71488bd635ba97~mv2.jpg",
+        img: "/images/food/gizzards.jpg",
       },
       {
         name: "Liver",
@@ -496,7 +495,7 @@ const bearssMenu: MenuCategory[] = [
           { size: "2 Piece", price: "$13.99", comboPrice: "$16.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_4484ceed69d7485d9b5df5c456db5182~mv2.jpg",
+        img: "/images/food/grouper.jpg",
       },
       {
         name: "Catfish Nuggets",
@@ -537,7 +536,7 @@ const bearssMenu: MenuCategory[] = [
           { size: "11 Pieces", price: "$18.99", comboPrice: "$21.99" },
         ],
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png/v1/fill/w_400,h_400,al_c,q_85/8b06b4_75244bd541c34705b28c2ce8a93c6568~mv2.png",
+        img: "/images/food/shrimp.jpg",
       },
       {
         name: "Shrimp",
@@ -557,13 +556,13 @@ const bearssMenu: MenuCategory[] = [
         name: "Fish & 8 Shrimp Special",
         price: "$18.99",
         desc: "Includes 3 hush puppies",
-        img: "https://static.wixstatic.com/media/8b06b4_0adbf0d8a7204259a87d3dbbb2125068~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_0adbf0d8a7204259a87d3dbbb2125068~mv2.jpg",
+        img: "/images/food/story-plate.jpg",
       },
       {
         name: "Fish, Side & Hush Puppies Special",
         price: "$13.99",
         desc: "Includes side & 3 hush puppies",
-        img: "https://static.wixstatic.com/media/8b06b4_ea2b56c6b3834e339f835923cb57f297~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_ea2b56c6b3834e339f835923cb57f297~mv2.jpg",
+        img: "/images/food/fish-hushpuppies.jpg",
       },
     ],
   },
@@ -585,14 +584,14 @@ const bearssMenu: MenuCategory[] = [
         price: "$7.99",
         comboPrice: "$10.99",
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_1abe9c9136c44a808cf3c325e44967f7~mv2.jpg",
+        img: "/images/food/chicken-sandwich.jpg",
       },
       {
         name: "Fish Sandwich",
         price: "$8.99",
         comboPrice: "$11.99",
         comboPremiumNote: "Premium sides +$5.99",
-        img: "https://static.wixstatic.com/media/2041f5_80a604da678040f39d686b21b4094789~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_80a604da678040f39d686b21b4094789~mv2.jpg",
+        img: "/images/food/fish-sandwich.jpg",
       },
       {
         name: "Grouper Sandwich",
@@ -747,7 +746,7 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Fries",
         price: "$3.99",
-        img: "https://static.wixstatic.com/media/8b06b4_c52f41438b8148ab99857deadca79ae8~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_c52f41438b8148ab99857deadca79ae8~mv2.jpg",
+        img: "/images/food/fries.jpg",
       },
       { name: "Basket For Fries", price: "$6.99" },
       { name: "Cheese Fries", price: "$6.99" },
@@ -767,13 +766,13 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Onion Rings",
         price: "$7.75",
-        img: "https://static.wixstatic.com/media/2041f5_d21a8b47dc164948b78c57f5c81f13c7~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/2041f5_d21a8b47dc164948b78c57f5c81f13c7~mv2.jpg",
+        img: "/images/food/onion-rings.jpg",
       },
       { name: "Mac & Cheese", price: "$6.99" },
       {
         name: "Pizza Puff",
         price: "$5.99",
-        img: "https://static.wixstatic.com/media/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/8b06b4_feeb4e0cd5da42e18c321db281a50820~mv2.jpg",
+        img: "/images/food/pizza-puff.jpg",
       },
       { name: "Pizza Puff (Beef)", price: "$6.99" },
       { name: "Whole Jalepeno Pepper", price: "$0.50" },
