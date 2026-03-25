@@ -44,7 +44,7 @@ export default function LocationPicker() {
   if (showNewcomer) {
     return (
       <div
-        className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+        className="fixed inset-0 z-[60] flex items-center justify-center p-4 picker-backdrop"
         style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
         role="dialog"
         aria-modal="true"
@@ -52,7 +52,7 @@ export default function LocationPicker() {
       >
         <div
           ref={dialogRef}
-          className="w-full max-w-md rounded-2xl overflow-hidden animate-fade-in-up"
+          className="w-full max-w-md rounded-2xl overflow-hidden picker-modal"
           style={{ background: "var(--accent)" }}
         >
           <div className="p-6 sm:p-8">
@@ -168,7 +168,7 @@ export default function LocationPicker() {
   // Main location picker
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 picker-backdrop"
       style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
       role="dialog"
       aria-modal="true"
@@ -176,7 +176,7 @@ export default function LocationPicker() {
     >
       <div
         ref={dialogRef}
-        className="w-full max-w-md rounded-2xl overflow-hidden animate-fade-in-up"
+        className="w-full max-w-md rounded-2xl overflow-hidden picker-modal"
         style={{ background: "var(--accent)" }}
       >
         <div className="p-6 sm:p-8 text-center">

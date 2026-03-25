@@ -123,6 +123,32 @@ h1, h2, h3, h4, h5, h6 {
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
 
+/* Location picker smooth entrance */
+@keyframes backdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.picker-backdrop {
+  animation: backdropFadeIn 0.35s ease-out forwards;
+}
+
+.picker-modal {
+  opacity: 0;
+  animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
 /* Badge styling */
 .badge {
   display: inline-flex;
@@ -311,6 +337,12 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+  .picker-backdrop,
+  .picker-modal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
   html {
     scroll-behavior: auto;
