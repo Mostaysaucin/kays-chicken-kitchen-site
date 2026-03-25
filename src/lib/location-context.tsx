@@ -30,10 +30,13 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
     const stored = sessionStorage.getItem(STORAGE_KEY) as LocationId | null;
     if (stored === "causeway" || stored === "bearss") {
       setSelectedLocation(stored);
+      setHydrated(true);
     } else {
-      setShowPicker(true);
+      setHydrated(true);
+      // Small delay lets the page settle before showing the picker
+      const timer = setTimeout(() => setShowPicker(true), 400);
+      return () => clearTimeout(timer);
     }
-    setHydrated(true);
   }, []);
 
   const setLocation = useCallback((id: LocationId) => {

@@ -125,29 +125,50 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Location picker smooth entrance */
 @keyframes backdropFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  0% { opacity: 0; backdrop-filter: blur(0); }
+  100% { opacity: 1; backdrop-filter: blur(4px); }
 }
 
 @keyframes modalSlideIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px) scale(0.97);
+    transform: translateY(24px) scale(0.94);
   }
-  to {
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.005);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
+@keyframes contentFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .picker-backdrop {
-  animation: backdropFadeIn 0.35s ease-out forwards;
+  animation: backdropFadeIn 0.5s ease-out forwards;
+  backdrop-filter: blur(0);
 }
 
 .picker-modal {
   opacity: 0;
-  animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  animation: modalSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
 }
+
+.picker-modal .picker-content > * {
+  opacity: 0;
+  animation: contentFadeIn 0.35s ease-out forwards;
+}
+.picker-modal .picker-content > *:nth-child(1) { animation-delay: 0.35s; }
+.picker-modal .picker-content > *:nth-child(2) { animation-delay: 0.42s; }
+.picker-modal .picker-content > *:nth-child(3) { animation-delay: 0.49s; }
+.picker-modal .picker-content > *:nth-child(4) { animation-delay: 0.56s; }
+.picker-modal .picker-content > *:nth-child(5) { animation-delay: 0.63s; }
+.picker-modal .picker-content > *:nth-child(6) { animation-delay: 0.70s; }
 
 /* Badge styling */
 .badge {

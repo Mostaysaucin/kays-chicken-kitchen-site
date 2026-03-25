@@ -55,7 +55,7 @@ export default function LocationPicker() {
           className="w-full max-w-md rounded-2xl overflow-hidden picker-modal"
           style={{ background: "var(--accent)" }}
         >
-          <div className="p-6 sm:p-8">
+          <div className="p-6 sm:p-8 picker-content">
             <h2
               className="text-2xl sm:text-3xl mb-2 text-center"
               style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "var(--secondary)" }}
@@ -179,7 +179,7 @@ export default function LocationPicker() {
         className="w-full max-w-md rounded-2xl overflow-hidden picker-modal"
         style={{ background: "var(--accent)" }}
       >
-        <div className="p-6 sm:p-8 text-center">
+        <div className="p-6 sm:p-8 text-center picker-content">
           <h2
             className="text-2xl sm:text-3xl mb-2"
             style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "var(--secondary)" }}
