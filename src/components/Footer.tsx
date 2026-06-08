@@ -14,12 +14,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           {/* Brand Column */}
           <div>
-            <h3
-              className="text-2xl mb-3"
-              style={{ fontFamily: "var(--font-heading)", fontWeight: 700, color: "var(--secondary)" }}
-            >
-              KAY&apos;S CHICKEN KITCHEN
-            </h3>
+            <img
+              src="/images/kays-kitchen-logo.png"
+              alt="Kay's Chicken Kitchen"
+              width={1000}
+              height={666}
+              className="h-24 w-auto mb-4"
+            />
             <p className="text-sm mb-4" style={{ color: "var(--text-secondary)", lineHeight: 1.7 }}>
               Tampa&apos;s ONLY Chicago Style Fried Chicken &amp; Fish with the Authentic Chicago
               Style Mild Sauce. Bringing Chicago flavor to Tampa since 2017.
