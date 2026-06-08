@@ -82,21 +82,16 @@ export default function Header() {
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.3)" : "none",
       }}
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-6xl mx-auto flex items-center justify-between h-20 md:h-24">
         {/* Logo */}
-        <a href="#" className="flex flex-col leading-none shrink-0" aria-label="Kay's Chicken Kitchen home">
-          <span
-            className="text-xl sm:text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "var(--font-heading)", color: "var(--secondary)", letterSpacing: "0.04em" }}
-          >
-            KAY&apos;S KITCHEN
-          </span>
-          <span
-            className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] uppercase mt-0.5"
-            style={{ fontFamily: "var(--font-heading)", color: "var(--text-secondary)" }}
-          >
-            Chicago Style &bull; Tampa, FL
-          </span>
+        <a href="#" className="flex items-center shrink-0" aria-label="Kay's Chicken Kitchen home">
+          <img
+            src="/images/kays-kitchen-logo.png"
+            alt="Kay's Chicken Kitchen"
+            width={1000}
+            height={666}
+            className="h-16 md:h-[88px] w-auto"
+          />
         </a>
 
         {/* Desktop Nav */}
