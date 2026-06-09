@@ -82,7 +82,7 @@ export default function Header() {
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.3)" : "none",
       }}
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between h-20 md:h-24">
+      <div className="max-w-6xl mx-auto flex items-center justify-between h-24 md:h-32">
         {/* Logo */}
         <a href="#" className="flex items-center shrink-0" aria-label="Kay's Chicken Kitchen home">
           <img
@@ -90,7 +90,7 @@ export default function Header() {
             alt="Kay's Chicken Kitchen"
             width={1000}
             height={666}
-            className="h-16 md:h-[88px] w-auto"
+            className="h-20 md:h-[108px] w-auto"
           />
         </a>
 
