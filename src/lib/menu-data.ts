@@ -10,8 +10,8 @@ export interface MenuItem {
   name: string;
   price?: string;           // Simple fixed price
   sizes?: MenuItemSize[];   // Size/quantity options
-  comboPrice?: string;      // combo price including side (base + $3.00)
-  comboPremiumNote?: string; // e.g. "Premium sides +$5.99"
+  comboPrice?: string;      // combo price including side (base + $4.00 = fries)
+  comboPremiumNote?: string; // e.g. "Other side +$3 · Mac & Cheese +$4"
   desc?: string;
   img?: string;
   note?: string;            // "Sold Out", "Side Included", etc.
@@ -24,12 +24,12 @@ export interface MenuCategory {
 }
 
 // ---------------------------------------------------------------------------
-// Causeway menu — scraped from SkyTab 2026-03-20
+// Causeway menu — base from SkyTab, repriced per owner "Menu 7-8-2026".
 // 10323 CAUSEWAY BLVD, TAMPA, FL 33619
-// Pricing restructured 2026-03-20: combo prices shown as honest totals.
-// Model 2 combos: listed price does NOT include required side; comboPrice =
-// base + $3.00 (fries). Premium sides (Corn Nuggets, Hush Puppies, Okra,
-// Onion Rings) add $5.99 at checkout instead of $3.00.
+// Combo model (2026-07-08): listed price is wings/protein only; the combo
+// includes FRIES at base + $4.00. Substitute a non-fry side +$3.00, or
+// Mac & Cheese +$4.00 (on top of the combo price).
+// Chi-Town wings & Whole Wing Bucket rebuilt to match the 7-8-2026 sheet.
 // Categories Sauce Additional and EXTRA REQUEST excluded from display tabs.
 // ---------------------------------------------------------------------------
 const causewayMenu: MenuCategory[] = [
@@ -38,31 +38,41 @@ const causewayMenu: MenuCategory[] = [
     label: "Chi-Town Whole Wings",
     items: [
       {
+        name: "3 Whole Wings & Side",
+        price: "$7.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
+      },
+      {
         name: "4 Whole Wings & Side",
-        price: "$12.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$9.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-10pc.jpg",
       },
       {
         name: "6 Whole Wings & Side",
-        price: "$14.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$12.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "8 Whole Wings & Side",
-        price: "$18.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$14.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "10 Whole Wings & Side",
-        price: "$23.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$17.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-20pc.jpg",
       },
       {
-        name: "20 Whole Wings & Side",
-        price: "$39.99",
-        desc: "Includes large fries. Other sides +$2.00",
+        name: "12 Whole Wings & Side",
+        price: "$20.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
+      },
+      {
+        name: "15 Whole Wings & Side",
+        price: "$26.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
     ],
   },
@@ -72,45 +82,41 @@ const causewayMenu: MenuCategory[] = [
     items: [
       {
         name: "6 Piece Wings",
-        price: "$10.99",
-        comboPrice: "$13.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$8.99",
+        comboPrice: "$12.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/wings-jumbo.jpg",
       },
       {
         name: "10 Piece Wings",
-        price: "$15.99",
-        comboPrice: "$18.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$13.99",
+        comboPrice: "$17.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/wings-fries-seasoned.jpg",
       },
       {
-        // Combo base is lower than wings-only at 15pc — show both clearly
-        name: "15 Piece Wings",
-        price: "$29.00",
-        comboPrice: "$26.99",
-        comboPremiumNote: "Premium sides +$5.99",
-        desc: "Combo is a better deal at $26.99",
-      },
-      {
-        // Combo base is lower than wings-only at 20pc — show both clearly
         name: "20 Piece Wings",
-        price: "$37.75",
-        comboPrice: "$31.99",
-        comboPremiumNote: "Premium sides +$5.99",
-        desc: "Combo is a better deal at $31.99",
+        price: "$25.99",
+        comboPrice: "$29.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
-        name: "25 Piece Wings",
-        price: "$34.99",
-        comboPrice: "$37.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        name: "30 Piece Wings",
+        price: "$36.99",
+        comboPrice: "$40.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "50 Piece Wings",
-        price: "$63.99",
-        comboPrice: "$66.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$59.99",
+        comboPrice: "$63.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
+      },
+      {
+        name: "100 Piece Wings",
+        price: "$119.99",
+        comboPrice: "$123.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
     ],
   },
@@ -121,10 +127,10 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "Chicken Tenders",
         sizes: [
-          { size: "4 Piece", price: "$9.99", comboPrice: "$12.99" },
-          { size: "6 Piece", price: "$12.99", comboPrice: "$15.99" },
+          { size: "4 Piece", price: "$9.99", comboPrice: "$13.99" },
+          { size: "6 Piece", price: "$12.99", comboPrice: "$16.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
     ],
   },
@@ -135,45 +141,45 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "Basa",
         sizes: [
-          { size: "1 Piece", price: "$7.99", comboPrice: "$10.99" },
-          { size: "2 Piece", price: "$13.99", comboPrice: "$16.99" },
+          { size: "1 Piece", price: "$7.99", comboPrice: "$11.99" },
+          { size: "2 Piece", price: "$13.99", comboPrice: "$17.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/grouper.jpg",
       },
       {
         name: "Catfish Nuggets",
         sizes: [
-          { size: "7-9 Pieces", price: "$9.99", comboPrice: "$12.99" },
-          { size: "10-13 Pieces", price: "$12.99", comboPrice: "$15.99" },
+          { size: "7-9 Pieces", price: "$9.99", comboPrice: "$13.99" },
+          { size: "10-13 Pieces", price: "$12.99", comboPrice: "$16.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "Grouper",
         sizes: [
-          { size: "1 Piece", price: "$12.99", comboPrice: "$15.99" },
-          { size: "2 Piece", price: "$17.99", comboPrice: "$20.99" },
+          { size: "1 Piece", price: "$12.99", comboPrice: "$16.99" },
+          { size: "2 Piece", price: "$17.99", comboPrice: "$21.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/fish-fillets.jpg",
       },
       {
         name: "Jumbo Shrimp",
         sizes: [
-          { size: "7 Pieces", price: "$11.99", comboPrice: "$14.99" },
-          { size: "11 Pieces", price: "$18.99", comboPrice: "$21.99" },
+          { size: "7 Pieces", price: "$11.99", comboPrice: "$15.99" },
+          { size: "11 Pieces", price: "$18.99", comboPrice: "$22.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/shrimp.jpg",
       },
       {
         name: "Shrimp",
         sizes: [
-          { size: "11 Pieces", price: "$9.99", comboPrice: "$12.99" },
-          { size: "18 Pieces", price: "$15.99", comboPrice: "$18.99" },
+          { size: "11 Pieces", price: "$9.99", comboPrice: "$13.99" },
+          { size: "18 Pieces", price: "$15.99", comboPrice: "$19.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       // Fixed-price specials — everything included
       {
@@ -202,19 +208,19 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "Gizzards",
         sizes: [
-          { size: "1/2 LB", price: "$7.99", comboPrice: "$10.99" },
-          { size: "1 LB", price: "$10.99", comboPrice: "$13.99" },
+          { size: "1/2 LB", price: "$7.99", comboPrice: "$11.99" },
+          { size: "1 LB", price: "$10.99", comboPrice: "$14.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/gizzards.jpg",
       },
       {
         name: "Liver",
         sizes: [
-          { size: "1/2 LB", price: "$7.99", comboPrice: "$10.99" },
-          { size: "1 LB", price: "$10.99", comboPrice: "$13.99" },
+          { size: "1/2 LB", price: "$7.99", comboPrice: "$11.99" },
+          { size: "1 LB", price: "$10.99", comboPrice: "$14.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
     ],
   },
@@ -225,15 +231,15 @@ const causewayMenu: MenuCategory[] = [
       {
         name: "Chicken Sandwich",
         price: "$7.99",
-        comboPrice: "$10.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPrice: "$11.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/chicken-sandwich.jpg",
       },
       {
         name: "Fish Sandwich",
         price: "$8.99",
-        comboPrice: "$11.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPrice: "$12.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/fish-sandwich.jpg",
       },
       {
@@ -255,11 +261,22 @@ const causewayMenu: MenuCategory[] = [
     id: "whole-wing-bucket",
     label: "Whole Wing Bucket",
     items: [
-      { name: "12 Whole Wings", price: "$22.99", img: "/images/food/wing-bucket.jpg" },
-      { name: "18 Whole Wings", price: "$34.99" },
-      { name: "24 Whole Wings", price: "$42.99" },
-      { name: "50 Whole Wings", price: "$84.99" },
-      { name: "75 Whole Wings", price: "$125.99" },
+      { name: "20 Whole Wings", price: "$30.99", img: "/images/food/wing-bucket.jpg" },
+      { name: "25 Whole Wings", price: "$37.99" },
+      { name: "30 Whole Wings", price: "$44.99" },
+      { name: "40 Whole Wings", price: "$58.99" },
+      { name: "50 Whole Wings", price: "$71.99" },
+      { name: "75 Whole Wings", price: "$101.99" },
+      { name: "100 Whole Wings", price: "$131.99" },
+    ],
+  },
+  {
+    id: "add-ons",
+    label: "Add-Ons",
+    items: [
+      { name: "5 Cut Wings", price: "$7.99" },
+      { name: "4 Shrimp", price: "$3.00" },
+      { name: "6 Shrimp", price: "$5.00" },
     ],
   },
   {
@@ -274,7 +291,7 @@ const causewayMenu: MenuCategory[] = [
         price: "$4.99",
         img: "/images/food/fries.jpg",
       },
-      { name: "Hush Puppies", price: "$7.25" },
+      { name: "Hush Puppies", price: "$5.99" },
       { name: "Jalapeno", price: "$0.60" },
       { name: "Large 6 Oz Mild Sauce", price: "$5.99" },
       { name: "Large Corn Nuggets", price: "$7.49" },
@@ -284,7 +301,7 @@ const causewayMenu: MenuCategory[] = [
       { name: "Okra", price: "$7.50" },
       {
         name: "Onion Rings",
-        price: "$7.50",
+        price: "$5.99",
         img: "/images/food/onion-rings.jpg",
       },
       {
@@ -298,13 +315,12 @@ const causewayMenu: MenuCategory[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Bearss menu — scraped from SkyTab 2026-03-20
+// Bearss menu — base from SkyTab, repriced per owner "Menu 7-8-2026".
 // 2808 E BEARSS AVE, TAMPA, FL 33613
-// Pricing restructured 2026-03-20: combo prices shown as honest totals.
-// Same Model 2 pricing as Causeway (fries +$3.00, other sides vary).
-// Bearss has additional side options at checkout (Cheese Fries $6.99,
-// Grits $3.99, Mac & Cheese $6.99, Mozz Sticks $5.99, Rice & Beans $2.00).
-// Categories Sauce Additional and EXTRA REQUEST excluded from display tabs.
+// Same combo model as Causeway (combo = base + $4.00 fries; non-fry side
+// +$3.00; Mac & Cheese +$4.00). Wings sections rebuilt to the 7-8-2026 sheet.
+// Lemonade collapsed to a single item. Categories Sauce Additional and
+// EXTRA REQUEST excluded from display tabs.
 // ---------------------------------------------------------------------------
 const bearssMenu: MenuCategory[] = [
   {
@@ -312,31 +328,41 @@ const bearssMenu: MenuCategory[] = [
     label: "Chi-Town Whole Wings",
     items: [
       {
+        name: "3 Whole Wings & Side",
+        price: "$7.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
+      },
+      {
         name: "4 Whole Wings & Side",
-        price: "$12.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$9.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-10pc.jpg",
       },
       {
         name: "6 Whole Wings & Side",
-        price: "$14.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$12.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "8 Whole Wings & Side",
-        price: "$18.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$14.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "10 Whole Wings & Side",
-        price: "$23.99",
-        desc: "Includes side. Premium sides +$2.00",
+        price: "$17.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-20pc.jpg",
       },
       {
-        name: "20 Whole Wings & Side",
-        price: "$39.99",
-        desc: "Includes large fries. Other sides +$2.00",
+        name: "12 Whole Wings & Side",
+        price: "$20.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
+      },
+      {
+        name: "15 Whole Wings & Side",
+        price: "$26.99",
+        desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
     ],
   },
@@ -346,41 +372,41 @@ const bearssMenu: MenuCategory[] = [
     items: [
       {
         name: "6 Piece Wings",
-        price: "$10.99",
-        comboPrice: "$13.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$8.99",
+        comboPrice: "$12.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/wings-jumbo.jpg",
       },
       {
         name: "10 Piece Wings",
-        price: "$15.99",
-        comboPrice: "$18.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$13.99",
+        comboPrice: "$17.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/wings-fries-seasoned.jpg",
       },
       {
-        name: "15 Piece Wings",
-        price: "$23.99",
-        comboPrice: "$26.99",
-        comboPremiumNote: "Premium sides +$5.99",
-      },
-      {
         name: "20 Piece Wings",
-        price: "$28.99",
-        comboPrice: "$31.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$25.99",
+        comboPrice: "$29.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
-        name: "25 Piece Wings",
-        price: "$34.99",
-        comboPrice: "$37.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        name: "30 Piece Wings",
+        price: "$36.99",
+        comboPrice: "$40.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "50 Piece Wings",
-        price: "$63.99",
-        comboPrice: "$66.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        price: "$59.99",
+        comboPrice: "$63.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
+      },
+      {
+        name: "100 Piece Wings",
+        price: "$119.99",
+        comboPrice: "$123.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
     ],
   },
@@ -454,10 +480,10 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Chicken Tenders",
         sizes: [
-          { size: "4 Piece", price: "$9.99", comboPrice: "$12.99" },
-          { size: "6 Piece", price: "$12.99", comboPrice: "$15.99" },
+          { size: "4 Piece", price: "$9.99", comboPrice: "$13.99" },
+          { size: "6 Piece", price: "$12.99", comboPrice: "$16.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
     ],
   },
@@ -468,19 +494,19 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Gizzards",
         sizes: [
-          { size: "1/2 LB", price: "$7.99", comboPrice: "$10.99" },
-          { size: "1 LB", price: "$10.99", comboPrice: "$13.99" },
+          { size: "1/2 LB", price: "$7.99", comboPrice: "$11.99" },
+          { size: "1 LB", price: "$10.99", comboPrice: "$14.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/gizzards.jpg",
       },
       {
         name: "Liver",
         sizes: [
-          { size: "1/2 LB", price: "$7.99", comboPrice: "$10.99" },
-          { size: "1 LB", price: "$10.99", comboPrice: "$13.99" },
+          { size: "1/2 LB", price: "$7.99", comboPrice: "$11.99" },
+          { size: "1 LB", price: "$10.99", comboPrice: "$14.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
     ],
   },
@@ -491,60 +517,60 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Basa",
         sizes: [
-          { size: "1 Piece", price: "$7.99", comboPrice: "$10.99" },
-          { size: "2 Piece", price: "$13.99", comboPrice: "$16.99" },
+          { size: "1 Piece", price: "$7.99", comboPrice: "$11.99" },
+          { size: "2 Piece", price: "$13.99", comboPrice: "$17.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/grouper.jpg",
       },
       {
         name: "Catfish Nuggets",
         sizes: [
-          { size: "7-9 Pieces", price: "$9.99", comboPrice: "$12.99" },
-          { size: "10-13 Pieces", price: "$12.99", comboPrice: "$15.99" },
+          { size: "7-9 Pieces", price: "$9.99", comboPrice: "$13.99" },
+          { size: "10-13 Pieces", price: "$12.99", comboPrice: "$16.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "Catfish Filet",
         sizes: [
-          { size: "1 Piece", price: "$7.99", comboPrice: "$10.99" },
-          { size: "2 Piece", price: "$13.99", comboPrice: "$16.99" },
+          { size: "1 Piece", price: "$7.99", comboPrice: "$11.99" },
+          { size: "2 Piece", price: "$13.99", comboPrice: "$17.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "Grouper",
         sizes: [
-          { size: "1 Piece", price: "$12.99", comboPrice: "$15.99" },
-          { size: "2 Piece", price: "$17.99", comboPrice: "$20.99" },
+          { size: "1 Piece", price: "$12.99", comboPrice: "$16.99" },
+          { size: "2 Piece", price: "$17.99", comboPrice: "$21.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "Whiting",
         sizes: [
-          { size: "3 Pieces", price: "$9.99", comboPrice: "$12.99" },
-          { size: "5 Pieces", price: "$12.99", comboPrice: "$15.99" },
+          { size: "3 Pieces", price: "$9.99", comboPrice: "$13.99" },
+          { size: "5 Pieces", price: "$12.99", comboPrice: "$16.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       {
         name: "Jumbo Shrimp",
         sizes: [
-          { size: "7 Pieces", price: "$11.99", comboPrice: "$14.99" },
-          { size: "11 Pieces", price: "$18.99", comboPrice: "$21.99" },
+          { size: "7 Pieces", price: "$11.99", comboPrice: "$15.99" },
+          { size: "11 Pieces", price: "$18.99", comboPrice: "$22.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/shrimp.jpg",
       },
       {
         name: "Shrimp",
         sizes: [
-          { size: "11 Pieces", price: "$9.99", comboPrice: "$12.99" },
-          { size: "18 Pieces", price: "$15.99", comboPrice: "$18.99" },
+          { size: "11 Pieces", price: "$9.99", comboPrice: "$13.99" },
+          { size: "18 Pieces", price: "$15.99", comboPrice: "$19.99" },
         ],
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
       },
       // Fixed-price specials — everything included
       {
@@ -582,15 +608,15 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Chicken Sandwich",
         price: "$7.99",
-        comboPrice: "$10.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPrice: "$11.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/chicken-sandwich.jpg",
       },
       {
         name: "Fish Sandwich",
         price: "$8.99",
-        comboPrice: "$11.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPrice: "$12.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         img: "/images/food/fish-sandwich.jpg",
       },
       {
@@ -600,8 +626,8 @@ const bearssMenu: MenuCategory[] = [
       {
         name: "Kay's Sweet Steak",
         price: "$11.99",
-        comboPrice: "$14.99",
-        comboPremiumNote: "Premium sides +$5.99",
+        comboPrice: "$15.99",
+        comboPremiumNote: "Other side +$3 · Mac & Cheese +$4",
         desc: "Sweet Hot or Original Sweet",
       },
     ],
@@ -619,90 +645,37 @@ const bearssMenu: MenuCategory[] = [
     id: "whole-wing-bucket",
     label: "Whole Wing Bucket",
     items: [
-      { name: "12 Whole Wings", price: "$22.99", img: "/images/food/wing-bucket.jpg" },
-      { name: "18 Whole Wings", price: "$34.99" },
-      { name: "24 Whole Wings", price: "$42.99" },
-      { name: "50 Whole Wings", price: "$84.99" },
-      { name: "75 Whole Wings", price: "$125.99" },
+      { name: "20 Whole Wings", price: "$30.99", img: "/images/food/wing-bucket.jpg" },
+      { name: "25 Whole Wings", price: "$37.99" },
+      { name: "30 Whole Wings", price: "$44.99" },
+      { name: "40 Whole Wings", price: "$58.99" },
+      { name: "50 Whole Wings", price: "$71.99" },
+      { name: "75 Whole Wings", price: "$101.99" },
+      { name: "100 Whole Wings", price: "$131.99" },
+    ],
+  },
+  {
+    id: "add-ons",
+    label: "Add-Ons",
+    items: [
+      { name: "5 Cut Wings", price: "$7.99" },
+      { name: "4 Shrimp", price: "$3.00" },
+      { name: "6 Shrimp", price: "$5.00" },
     ],
   },
   {
     id: "kays-lemonade",
     label: "Kay's Lemonade",
     items: [
-      { name: "DRINK: 1/2 Gallons MIXED", price: "$10.99" },
       {
-        name: "SLUSHY: Mixed Flavors",
+        name: "Lemonade",
         sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
+          { size: "Small", price: "$2.99" },
+          { size: "Medium", price: "$4.99" },
+          { size: "Large", price: "$6.99" },
+          { size: "1/2 Gallon", price: "$9.99" },
         ],
         img: "/images/food/fruit-slushy.jpg",
-      },
-      {
-        name: "SLUSHY: Peach Pineapple",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "DRINK: Peach",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "SLUSHY: Pineapple Mango",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "DRINK: Peach Pineapple",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "DRINK: Pineapple",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "DRINK: Mango",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "DRINK: Mango Pineapple",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
-      },
-      {
-        name: "DRINK: Mix All Flavors",
-        sizes: [
-          { size: "Small", price: "$4.16" },
-          { size: "Regular", price: "$6.25" },
-          { size: "Large", price: "$8.33" },
-        ],
       },
     ],
   },
@@ -715,7 +688,7 @@ const bearssMenu: MenuCategory[] = [
       { name: "Orange Bottle", price: "$3.00" },
       { name: "Grape Bottle", price: "$3.00" },
       { name: "Pineapple Bottle", price: "$3.00" },
-      { name: "Bottle Water", price: "$2.59" },
+      { name: "Bottle Water", price: "$2.49" },
       { name: "Strawberry Kiwi Punch", price: "$3.00" },
       { name: "Coke Can", price: "$2.00" },
       { name: "Dr. Pepper Can", price: "$2.00" },
@@ -745,12 +718,12 @@ const bearssMenu: MenuCategory[] = [
       { name: "Bread", price: "$0.25" },
       {
         name: "Fries",
-        price: "$3.99",
+        price: "$4.99",
         img: "/images/food/fries.jpg",
       },
       { name: "Basket For Fries", price: "$6.99" },
       { name: "Cheese Fries", price: "$6.99" },
-      { name: "Rice & Beans", price: "$3.99" },
+      { name: "Red Beans & Rice", price: "$4.99" },
       {
         name: "Rice",
         sizes: [
@@ -758,14 +731,14 @@ const bearssMenu: MenuCategory[] = [
           { size: "Lg", price: "$6.99" },
         ],
       },
-      { name: "Grits Regular", price: "$3.99" },
+      { name: "Grits Regular", price: "$2.99" },
       { name: "Okra", price: "$5.99" },
       { name: "Mozzarella Sticks", price: "$5.99" },
       { name: "Corn Nuggets", price: "$5.99" },
-      { name: "Hush Puppies", price: "$7.75" },
+      { name: "Hush Puppies", price: "$5.99" },
       {
         name: "Onion Rings",
-        price: "$7.75",
+        price: "$5.99",
         img: "/images/food/onion-rings.jpg",
       },
       { name: "Mac & Cheese", price: "$6.99" },
@@ -779,7 +752,7 @@ const bearssMenu: MenuCategory[] = [
       { name: "Large 6 Oz Mild Sauce", price: "$5.99" },
       { name: "Large Rice & Beans", price: "$6.99" },
       { name: "Large Cheese Fries", price: "$8.99" },
-      { name: "Large Grits", price: "$6.99" },
+      { name: "Large Grits", price: "$5.99" },
       { name: "Large Okra", price: "$7.49" },
       { name: "Large Corn Nuggets", price: "$7.49" },
       { name: "Large Hush Puppies", price: "$7.49" },

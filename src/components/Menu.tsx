@@ -303,8 +303,7 @@ export default function Menu() {
           className="text-xs text-center mb-8"
           style={{ color: "var(--text-secondary)" }}
         >
-          Combos include a side. Fries are the default. Substitute for a premium side
-          at an additional charge.
+          Combos come with fries (+$4). Other side +$3 &middot; Mac &amp; Cheese +$4.
         </p>
 
         {/* Menu Items */}
