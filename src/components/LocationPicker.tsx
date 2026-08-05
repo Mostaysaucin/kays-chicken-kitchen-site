@@ -36,8 +36,8 @@ export default function LocationPicker() {
   if (!showPicker) return null;
 
   const locationCards: { id: LocationId; icon: string; hoursLine: string }[] = [
-    { id: "causeway", icon: "📍", hoursLine: "Tue-Sat 11am-8:30pm | Card Only" },
-    { id: "bearss", icon: "🏠", hoursLine: "Tue-Thu 11am-2am | Fri-Sat 11am-4am | Sun 12pm-2am" },
+    { id: "causeway", icon: "📍", hoursLine: "Tue-Thu 11am-8:30pm | Fri-Sat 11am-3am | Card Only" },
+    { id: "bearss", icon: "🏠", hoursLine: "Tue-Thu 11am-12am | Fri-Sat 11am-4am | Sun 12pm-12am" },
   ];
 
   // Newcomer info screen
