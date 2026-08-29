@@ -45,7 +45,7 @@ export const LOCATIONS: Record<LocationId, LocationData> = {
     phone: PHONE,
     hours: [
       { days: "Tue - Thu", time: "11:00 AM - 8:30 PM" },
-      { days: "Fri - Sat", time: "11:00 AM - 3:00 AM" },
+      { days: "Fri - Sat", time: "11:00 AM - 12:00 AM" },
       { days: "Mon & Sun", time: "Closed" },
     ],
     hoursNote: "Last order 10 min before close",
@@ -66,7 +66,7 @@ export const LOCATIONS: Record<LocationId, LocationData> = {
     phone: PHONE,
     hours: [
       { days: "Tue - Thu", time: "11:00 AM - 12:00 AM" },
-      { days: "Fri - Sat", time: "11:00 AM - 4:00 AM" },
+      { days: "Fri - Sat", time: "11:00 AM - 3:00 AM" },
       { days: "Sun", time: "12:00 PM - 12:00 AM" },
       { days: "Mon", time: "Closed" },
     ],
@@ -77,6 +77,6 @@ export const LOCATIONS: Record<LocationId, LocationData> = {
     googleReviews: "206",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=2808+E+Bearss+Ave+Tampa+FL+33613",
     orderUrl: ORDER_BEARSS,
-    highlight: "Open until 4AM on weekends!",
+    highlight: "Open until 3AM on weekends!",
   },
 };

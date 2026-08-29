@@ -103,7 +103,7 @@ export default function Footer() {
                 >
                   10323 Causeway Blvd, Tampa, FL 33619
                 </a>
-                <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>Tue-Thu 11am-8:30pm | Fri-Sat 11am-3am</p>
+                <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>Tue-Thu 11am-8:30pm | Fri-Sat 11am-12am</p>
                 <p className="text-xs mt-0.5" style={{ color: "var(--primary)" }}>Card Only</p>
               </div>
               <div>
@@ -126,7 +126,7 @@ export default function Footer() {
                 >
                   2808 E Bearss Ave, Tampa, FL 33613
                 </a>
-                <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>Tue-Thu 11am-12am | Fri-Sat 11am-4am | Sun 12pm-12am</p>
+                <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>Tue-Thu 11am-12am | Fri-Sat 11am-3am | Sun 12pm-12am</p>
               </div>
               <div>
                 <a href={PHONE_HREF} className="text-sm font-bold hover:underline" style={{ color: "var(--primary)" }}>
