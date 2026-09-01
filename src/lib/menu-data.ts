@@ -29,7 +29,8 @@ export interface MenuCategory {
 // Combo model (2026-07-08): listed price is wings/protein only; the combo
 // includes FRIES at base + $4.00. Substitute a non-fry side +$3.00, or
 // Mac & Cheese +$4.00 (on top of the combo price).
-// Chi-Town wings & Whole Wing Bucket rebuilt to match the 7-8-2026 sheet.
+// Chi-Town wings & Whole Wing Bucket include the owner's $1 increase effective
+// 2026-09-02; Snack Pack pricing is unchanged.
 // Categories Sauce Additional and EXTRA REQUEST excluded from display tabs.
 // ---------------------------------------------------------------------------
 const causewayMenu: MenuCategory[] = [
@@ -39,39 +40,39 @@ const causewayMenu: MenuCategory[] = [
     items: [
       {
         name: "3 Whole Wings & Side",
-        price: "$7.99",
+        price: "$8.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "4 Whole Wings & Side",
-        price: "$9.99",
+        price: "$10.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-10pc.jpg",
       },
       {
         name: "6 Whole Wings & Side",
-        price: "$12.99",
+        price: "$13.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "8 Whole Wings & Side",
-        price: "$14.99",
+        price: "$15.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "10 Whole Wings & Side",
-        price: "$17.99",
+        price: "$18.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-20pc.jpg",
       },
       {
         name: "12 Whole Wings & Side",
-        price: "$20.99",
+        price: "$21.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "15 Whole Wings & Side",
-        price: "$26.99",
+        price: "$27.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
     ],
@@ -261,13 +262,13 @@ const causewayMenu: MenuCategory[] = [
     id: "whole-wing-bucket",
     label: "Whole Wing Bucket",
     items: [
-      { name: "20 Whole Wings", price: "$30.99", img: "/images/food/wing-bucket.jpg" },
-      { name: "25 Whole Wings", price: "$37.99" },
-      { name: "30 Whole Wings", price: "$44.99" },
-      { name: "40 Whole Wings", price: "$58.99" },
-      { name: "50 Whole Wings", price: "$71.99" },
-      { name: "75 Whole Wings", price: "$101.99" },
-      { name: "100 Whole Wings", price: "$131.99" },
+      { name: "20 Whole Wings", price: "$31.99", img: "/images/food/wing-bucket.jpg" },
+      { name: "25 Whole Wings", price: "$38.99" },
+      { name: "30 Whole Wings", price: "$45.99" },
+      { name: "40 Whole Wings", price: "$59.99" },
+      { name: "50 Whole Wings", price: "$72.99" },
+      { name: "75 Whole Wings", price: "$102.99" },
+      { name: "100 Whole Wings", price: "$132.99" },
     ],
   },
   {
@@ -318,9 +319,10 @@ const causewayMenu: MenuCategory[] = [
 // Bearss menu — base from SkyTab, repriced per owner "Menu 7-8-2026".
 // 2808 E BEARSS AVE, TAMPA, FL 33613
 // Same combo model as Causeway (combo = base + $4.00 fries; non-fry side
-// +$3.00; Mac & Cheese +$4.00). Wings sections rebuilt to the 7-8-2026 sheet.
-// Lemonade collapsed to a single item. Categories Sauce Additional and
-// EXTRA REQUEST excluded from display tabs.
+// +$3.00; Mac & Cheese +$4.00). Chi-Town wings, Whole Wing Bucket, and Chicken
+// & Waffle include the owner's $1 increase effective 2026-09-02; Snack Pack
+// pricing is unchanged. Lemonade collapsed to a single item. Categories Sauce
+// Additional and EXTRA REQUEST excluded from display tabs.
 // ---------------------------------------------------------------------------
 const bearssMenu: MenuCategory[] = [
   {
@@ -329,39 +331,39 @@ const bearssMenu: MenuCategory[] = [
     items: [
       {
         name: "3 Whole Wings & Side",
-        price: "$7.99",
+        price: "$8.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "4 Whole Wings & Side",
-        price: "$9.99",
+        price: "$10.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-10pc.jpg",
       },
       {
         name: "6 Whole Wings & Side",
-        price: "$12.99",
+        price: "$13.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "8 Whole Wings & Side",
-        price: "$14.99",
+        price: "$15.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "10 Whole Wings & Side",
-        price: "$17.99",
+        price: "$18.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
         img: "/images/food/wings-whole-20pc.jpg",
       },
       {
         name: "12 Whole Wings & Side",
-        price: "$20.99",
+        price: "$21.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
       {
         name: "15 Whole Wings & Side",
-        price: "$26.99",
+        price: "$27.99",
         desc: "Includes side. Other side +$3, Mac & Cheese +$4",
       },
     ],
@@ -596,9 +598,9 @@ const bearssMenu: MenuCategory[] = [
     id: "kays-chicken-waffle",
     label: "Chicken & Waffle",
     items: [
-      { name: "3 Tenders + Waffles", price: "$14.99" },
-      { name: "3 Whole Wings + Waffles", price: "$14.99" },
-      { name: "Waffle Only", price: "$5.99" },
+      { name: "3 Tenders + Waffles", price: "$15.99" },
+      { name: "3 Whole Wings + Waffles", price: "$15.99" },
+      { name: "Waffle Only", price: "$6.99" },
     ],
   },
   {
@@ -645,13 +647,13 @@ const bearssMenu: MenuCategory[] = [
     id: "whole-wing-bucket",
     label: "Whole Wing Bucket",
     items: [
-      { name: "20 Whole Wings", price: "$30.99", img: "/images/food/wing-bucket.jpg" },
-      { name: "25 Whole Wings", price: "$37.99" },
-      { name: "30 Whole Wings", price: "$44.99" },
-      { name: "40 Whole Wings", price: "$58.99" },
-      { name: "50 Whole Wings", price: "$71.99" },
-      { name: "75 Whole Wings", price: "$101.99" },
-      { name: "100 Whole Wings", price: "$131.99" },
+      { name: "20 Whole Wings", price: "$31.99", img: "/images/food/wing-bucket.jpg" },
+      { name: "25 Whole Wings", price: "$38.99" },
+      { name: "30 Whole Wings", price: "$45.99" },
+      { name: "40 Whole Wings", price: "$59.99" },
+      { name: "50 Whole Wings", price: "$72.99" },
+      { name: "75 Whole Wings", price: "$102.99" },
+      { name: "100 Whole Wings", price: "$132.99" },
     ],
   },
   {
